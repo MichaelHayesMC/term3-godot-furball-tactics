@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btg117njqy6w6"]
 
-[ext_resource type="Script" uid="uid://do6cgke8pn5fh" path="res://title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Script" uid="uid://do6cgke8pn5fh" path="res://systems/title_screen.gd" id="1_v6p8y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nnsk1"]
 line_spacing = 0.0
