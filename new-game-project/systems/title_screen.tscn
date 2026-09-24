@@ -4,7 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_nnsk1"]
 line_spacing = 0.0
-font_size = 162
+font_size = 131
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=167105902]
 script = ExtResource("1_v6p8y")
@@ -62,7 +62,7 @@ theme_override_constants/separation = 18
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1173780452]
 layout_mode = 2
-text = "Title"
+text = "Furball Tactics"
 label_settings = SubResource("LabelSettings_nnsk1")
 horizontal_alignment = 1
 vertical_alignment = 1

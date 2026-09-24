@@ -8,7 +8,10 @@ class_name World
 @export var levels : Array[PackedScene]
 
 func _ready() -> void:
-	pass
+	Network.host_creation.connect(host_creation)
+
+func host_creation():
+	$LobbyUI.show()
 
 # Calls function to change scene with all player clients changing with it
 func _on_start_pressed() -> void:

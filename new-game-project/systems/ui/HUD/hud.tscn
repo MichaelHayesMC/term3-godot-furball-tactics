@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://bk3u4nuea5lx8" path="res://systems/ui/HUD/timer_hud.gd" id="1_6fi6k"]
 [ext_resource type="PackedScene" uid="uid://dm0a8tcy3qrnr" path="res://systems/ui/Modifiers/modifiers_hud.tscn" id="2_uo2fv"]
 [ext_resource type="Script" uid="uid://i1nklnuj25uj" path="res://systems/ui/Modifiers/h_box_container.gd" id="3_047uy"]
-[ext_resource type="PackedScene" uid="uid://0ydfatbbqu2b" path="res://systems/ui/Modifiers/player_pfp.tscn" id="4_5pdws"]
+[ext_resource type="Texture2D" uid="uid://do3jybhyfm40x" path="res://systems/ui/player_icons/Pfp1.png" id="4_imfy1"]
+[ext_resource type="Texture2D" uid="uid://dm87d3p37tl2h" path="res://systems/ui/player_icons/Pfp2.png" id="5_kco8j"]
 [ext_resource type="Script" uid="uid://dthe1ihliim5j" path="res://systems/ui/HUD/scoreboard.gd" id="5_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://lv8c8pr8ql1i" path="res://systems/ui/player_icons/Pfp3.png" id="6_non70"]
+[ext_resource type="Texture2D" uid="uid://7un6wbab03ly" path="res://systems/ui/player_icons/Pfp4.png" id="7_qpx4v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qfnet"]
 font_size = 90
@@ -51,64 +54,25 @@ theme_override_constants/separation = 15
 alignment = 2
 script = ExtResource("3_047uy")
 
-[node name="Player_Pfp" parent="HBoxContainer" unique_id=959515229 instance=ExtResource("4_5pdws")]
-custom_minimum_size = Vector2(120, 120)
+[node name="Player_Pfp" type="TextureRect" parent="HBoxContainer" unique_id=1157569266]
 layout_mode = 2
-color = Color(0, 1, 1, 1)
+texture = ExtResource("4_imfy1")
+expand_mode = 3
 
-[node name="Player_Pfp2" parent="HBoxContainer" unique_id=706862533 instance=ExtResource("4_5pdws")]
-custom_minimum_size = Vector2(120, 120)
+[node name="Player_Pfp2" type="TextureRect" parent="HBoxContainer" unique_id=1803022824]
 layout_mode = 2
-color = Color(0, 1, 0, 1)
+texture = ExtResource("5_kco8j")
+expand_mode = 3
 
-[node name="Player_Pfp3" parent="HBoxContainer" unique_id=825478279 instance=ExtResource("4_5pdws")]
-custom_minimum_size = Vector2(120, 120)
+[node name="Player_Pfp3" type="TextureRect" parent="HBoxContainer" unique_id=1476994473]
 layout_mode = 2
-color = Color(1, 0.49803922, 0, 1)
+texture = ExtResource("6_non70")
+expand_mode = 3
 
-[node name="Player_Pfp4" parent="HBoxContainer" unique_id=1841829233 instance=ExtResource("4_5pdws")]
-custom_minimum_size = Vector2(120, 120)
+[node name="Player_Pfp4" type="TextureRect" parent="HBoxContainer" unique_id=248482428]
 layout_mode = 2
-color = Color(1, 0, 0, 1)
-
-[node name="Modifier_1_HUD" type="ColorRect" parent="." unique_id=2123424528]
-anchors_preset = -1
-anchor_left = 0.022000002
-anchor_top = 0.901
-anchor_right = 0.048
-anchor_bottom = 0.947
-offset_left = 56.727985
-offset_top = -24.305237
-offset_right = 76.82492
-offset_bottom = -3.7763062
-grow_vertical = 0
-rotation = 0.7853982
-
-[node name="Modifier_2_HUD" type="ColorRect" parent="." unique_id=1086297591]
-anchors_preset = -1
-anchor_left = 0.075
-anchor_top = 0.901
-anchor_right = 0.1
-anchor_bottom = 0.947
-offset_left = 56.119995
-offset_top = -24.440002
-offset_right = 78.13696
-offset_bottom = -3.9110718
-grow_vertical = 0
-rotation = 0.7853982
-
-[node name="Modifier_3_HUD" type="ColorRect" parent="." unique_id=1647579752]
-anchors_preset = -1
-anchor_left = 0.127
-anchor_top = 0.901
-anchor_right = 0.15300001
-anchor_bottom = 0.947
-offset_left = 57.128006
-offset_top = -24.440002
-offset_right = 77.224915
-offset_bottom = -3.9110718
-grow_vertical = 0
-rotation = 0.7853982
+texture = ExtResource("7_qpx4v")
+expand_mode = 3
 
 [node name="Scoreboard" type="Control" parent="." unique_id=2012541235]
 layout_mode = 3

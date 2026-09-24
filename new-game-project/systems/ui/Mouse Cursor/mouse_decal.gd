@@ -11,11 +11,11 @@ func _ready() -> void:
 		var player_index = GameManager.players.find(name)
 		colour_change.rpc(player_index)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if !is_multiplayer_authority() : return
-	
+	if !is_multiplayer_authority():
+		return
+		
 	global_position = get_global_mouse_position()
 
 @rpc("call_local", "any_peer")
