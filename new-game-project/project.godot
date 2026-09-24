@@ -29,6 +29,10 @@ window/vsync/vsync_mode=0
 "<<<<<<<HEAD[editor_plugins]enabled"=PackedStringArray("res://addons/tube/plugin.cfg")
 "<<<<<<<HEAD<<<<<<<HEAD[editor_plugins]enabled"=PackedStringArray("res://addons/nodetunnel/plugin.cfg")
 
+[editor]
+
+run/main_run_args="1, 2"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/tube/plugin.cfg")
