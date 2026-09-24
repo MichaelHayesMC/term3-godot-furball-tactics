@@ -17,6 +17,11 @@ const PORT = 9999
 const TUBE_CONTEXT = preload("uid://bjcuq8aag84wf")
 var ip_test = "localhost"
 
+var players: Dictionary = {}
+signal player_list_updated(player_list)
+
+signal host_creation
+
 func _ready() -> void:
 	if tube_enabled:
 		tube_client.context = TUBE_CONTEXT
@@ -27,6 +32,7 @@ func tube_create():
 	#multiplayer.peer_disconnected.connect(remove_player)
 	tube_client.create_session()
 	add_player(1)
+	host_creation.emit()
 
 func tube_join(session_id: String):
 	multiplayer.peer_connected.connect(add_player)
@@ -41,16 +47,24 @@ func add_player(peer_id):
 	if !multiplayer.is_server() and multiplayer.multiplayer_peer is ENetMultiplayerPeer:
 		return
 
-	#add_player_rpc.rpc(peer_id)
+	players[peer_id] = true
+
 	var player = PLAYER.instantiate()
 	player.name = str(peer_id)
 	get_tree().current_scene.add_child(player)
-	#get_tree().current_scene.get_node("Players").add_child(player)
 	
-	#var mouse = MOUSE.instantiate()
-	#mouse.name = str(peer_id)
-	#get_tree().current_scene.add_child(player)
-	##world.player_colour.emit()
+	var mouse = MOUSE.instantiate()
+	mouse.name = str(peer_id)
+	get_tree().current_scene.get_node("CanvasLayer/PlayerCursors").add_child(mouse)
+	
+	sync_player_list.rpc(players)
+
+@rpc("authority", "call_local", "reliable")
+func sync_player_list(new_player_list: Dictionary):
+	players = new_player_list.duplicate(true)
+	
+	player_list_updated.emit(players)
+	
 
 func clean_up_signals():
 	multiplayer.peer_connected.disconnect(add_player) 
@@ -88,11 +102,6 @@ func _exit_tree() -> void:
 	#mouse.name = str(peer_id)
 	#$CanvasLayer/PlayerCursors.add_child(mouse)
 
-#func add_cursor(peer_id):
-	#var mouse = MOUSE.instantiate()
-	#mouse.name = str(peer_id)
-	#$PlayerCursors.add_child(mouse)
-	#world.player_colour.emit()
 #
 ## Calls function to change scene with all player clients changing with it
 #func _on_start_pressed() -> void:
