@@ -4,16 +4,33 @@ class_name Player
 signal score_changed(new_score: int)
 
 @onready var camera_3d = get_tree().get_first_node_in_group("global_camera")
-@onready var mat = $MeshInstance3D.get_active_material(0) as StandardMaterial3D
 @export var Bullet: PackedScene
 
-var score: int = 0:
-	set(value):
-		score = value
-		score_changed.emit(score)
+@onready var circle: MeshInstance3D = $"Anchor/Skin+X-ray/Circle"
+@onready var circle_001: MeshInstance3D = $"Anchor/Skin+X-ray/Circle_001"
+@onready var cube: MeshInstance3D = $"Anchor/Skin+X-ray/Cube"
+@onready var cube_001: MeshInstance3D = $"Anchor/Skin+X-ray/Cube/Cube_001"
+@onready var cube_006: MeshInstance3D = $"Anchor/Skin+X-ray/Cube/Cube_006"
+@onready var cube_002: MeshInstance3D = $"Anchor/Skin+X-ray/Cube_002"
+@onready var cube_003: MeshInstance3D = $"Anchor/Skin+X-ray/Cube_003"
+@onready var plane_001: MeshInstance3D = $"Anchor/Skin+X-ray/Lattice_001/Plane_001"
+@onready var plane_002: MeshInstance3D = $"Anchor/Skin+X-ray/Lattice_001/Plane_002"
+@onready var plane_003: MeshInstance3D = $"Anchor/Skin+X-ray/Lattice_002/Plane_003"
+@onready var plane_004: MeshInstance3D = $"Anchor/Skin+X-ray/Lattice_002/Plane_004"
+@onready var plane: MeshInstance3D = $"Anchor/Skin+X-ray/Plane"
 
-var shooting := true
-var health := 1
+@onready var Ocircle: MeshInstance3D = $Anchor/Outline/Circle
+@onready var Ocircle_001: MeshInstance3D = $Anchor/Outline/Circle_001
+@onready var Ocube: MeshInstance3D = $Anchor/Outline/Cube
+@onready var Ocube_001: MeshInstance3D = $Anchor/Outline/Cube/Cube_001
+@onready var Ocube_006: MeshInstance3D = $Anchor/Outline/Cube/Cube_006
+@onready var Ocube_002: MeshInstance3D = $Anchor/Outline/Cube_002
+@onready var Ocube_003: MeshInstance3D = $Anchor/Outline/Cube_003
+@onready var Oplane_001: MeshInstance3D = $Anchor/Outline/Lattice_001/Plane_001
+@onready var Oplane_002: MeshInstance3D = $Anchor/Outline/Lattice_001/Plane_002
+@onready var Oplane_003: MeshInstance3D = $Anchor/Outline/Lattice_002/Plane_003
+@onready var Oplane_004: MeshInstance3D = $Anchor/Outline/Lattice_002/Plane_004
+@onready var Oplane: MeshInstance3D = $Anchor/Outline/Plane
 
 const Speed := 75.0
 const Friction := -40.0
@@ -23,57 +40,78 @@ const Gravity := 50.0
 
 var ghost_walk := false
 var echo_shield := false
-
 var attack_speed_modifier := 1.0
 var move_speed_modifier := 1.0
 
 var time : float
 var moving
 
-func _process(delta):
-	time += delta
-	
-	$Anchor.scale.y = 0.15 * sin(time * 10.0) + 1
-
-	if !moving:
-		$Anchor.rotation.z = 0.15 * sin(time * 5.0)
-	else:
-		$Anchor.rotation.z = 0.15 * sin(time * 20.0) * move_speed_modifier
+var shooting := true
+var health := 1
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-@rpc("any_peer", "call_local", "reliable")
-func set_moving(value: bool) -> void:
-	moving = value
-		
+@onready var body = [
+	circle, circle_001, cube, 
+	cube_001, cube_006, cube_002,
+	cube_003, plane
+]
 
-func apply_card(card_data: Dictionary) -> void:
-	match card_data["name"]:
-		"ATK SPEED":
-			attack_speed_modifier += card_data["value"]
-		"ATK SPEED +":
-			attack_speed_modifier += card_data["value"]
-		"MOVE SPEED":
-			move_speed_modifier += card_data["value"]
-		"MOVE SPEED +":
-			move_speed_modifier += card_data["value"]
+@onready var eyes = [
+	plane_001, plane_003
+]
+
+@onready var Obody = [
+	Ocircle, Ocircle_001, Ocube, 
+	Ocube_001, Ocube_006, Ocube_002,
+	Ocube_003, Oplane
+]
+
+@onready var Oeyes = [
+	Oplane_001, Oplane_003
+]
+
+@export var player_color: Color
+@export var body_color: Color
+@export var eye_color: Color
+
+var player_list
+
+var score: int = 0:
+	set(value):
+		score = value
+		score_changed.emit(score)
 
 func _enter_tree() -> void:
+	Network.player_list_updated.connect(test)
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready() -> void:
-	GameManager.players.append(name)
 	add_to_group("players")
-	colour_change()
-	
 	%LabelSession.text = Network.tube_client.session_id
+	GameManager.players.append(name)
 	
+	## Will cause the game to break due to incorrect referencing being doubled between clients
 	if !is_multiplayer_authority():
 		return
+	
+	#GameManager.signal_session_info.connect(test)
+	
+	var bodyc = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
+	var eyec = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
+	var outlinec := Color.WHITE
+
+	# Wait for Network gd to allow the player_list to become valid
+	await get_tree().create_timer(.01).timeout
+	colour_change(bodyc, eyec, outlinec)
+
+func test(new_info):
+	player_list = new_info
 
 func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
+
+	set_color.rpc(player_color, body_color, eye_color)
 
 	var space_state = get_world_3d().direct_space_state
 	var mousepos = get_viewport().get_mouse_position()
@@ -107,7 +145,6 @@ func _physics_process(delta: float) -> void:
 			moving = false
 			set_moving.rpc(false)
 
-
 	if Input.is_action_pressed("move_up") and is_on_floor():
 		if moving != true:
 			moving = true
@@ -122,8 +159,7 @@ func _physics_process(delta: float) -> void:
 		if moving != false:
 			moving = false
 			set_moving.rpc(false)
-
-
+	
 	if Input.is_action_pressed("move_right") and is_on_floor():
 		if moving != true:
 			moving = true
@@ -138,8 +174,7 @@ func _physics_process(delta: float) -> void:
 		if moving != false:
 			moving = false
 			set_moving.rpc(false)
-
-
+	
 	if Input.is_action_pressed("move_left") and is_on_floor():
 		if moving != true:
 			moving = true
@@ -154,23 +189,50 @@ func _physics_process(delta: float) -> void:
 		if moving != false:
 			moving = false
 			set_moving.rpc(false)
-
+	
 	if GameManager.players_moving:
 		move_and_slide()
-
+	
 	if Input.is_action_just_pressed("left_click"):
 		shoot.rpc()
 
+func _process(delta):
+	time += delta
+	
+	$Anchor.scale.y = 0.15 * sin(time * 10.0) + 1
 
-# --------------------------------------------------
-# DAMAGE
-# --------------------------------------------------
+	if !moving:
+		$Anchor.rotation.z = 0.15 * sin(time * 5.0)
+	else:
+		$Anchor.rotation.z = 0.15 * sin(time * 20.0) * move_speed_modifier
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+@rpc("any_peer", "call_local", "reliable")
+func set_moving(value: bool) -> void:
+	moving = value
+
+func apply_card(card_data: Dictionary) -> void:
+	match card_data["name"]:
+		"ATK SPEED":
+			attack_speed_modifier += card_data["value"]
+		"ATK SPEED +":
+			attack_speed_modifier += card_data["value"]
+		"MOVE SPEED":
+			move_speed_modifier += card_data["value"]
+		"MOVE SPEED +":
+			move_speed_modifier += card_data["value"]
+		"BIGGER BULLETS":
+			pass
+		"PHANTOM DASH":
+			pass
+		"YARN SHIELD":
+			pass
 
 # ONLY the server is allowed to process damage.
 @rpc("authority", "call_local", "reliable")
 func receive_damage():
 	health -= 1
-
+	
 	if health <= 0:
 		print(name, " Died")
 
@@ -179,29 +241,20 @@ func receive_damage():
 func kill_update():
 	position.z += 100
 
-# --------------------------------------------------
-# SCORE
-# --------------------------------------------------
-
 # ONLY the server is allowed to award points.
 @rpc("any_peer", "call_local", "reliable")
 func add_point():
 	if !multiplayer.is_server():
 		return
-
+		
 	score += 1
 	update_score.rpc(score)
-
+	
 	print("Player ", name, " got a point! Score: ", score)
-
 
 @rpc("authority", "call_remote", "reliable")
 func update_score(new_score: int):
 	score = new_score
-
-# --------------------------------------------------
-# SHOOTING
-# --------------------------------------------------
 
 @rpc("any_peer", "call_local", "reliable")
 func shoot():
@@ -224,37 +277,61 @@ func shoot():
 
 		shooting = true
 
+func colour_change(bodyc, eyec, outlinec):
+	if name == str(player_list.keys()[0]):
+		bodyc = Color.CYAN
+	elif name == str(player_list.keys()[1]):
+		bodyc = Color.GREEN
+	elif name == str(player_list.keys()[2]):
+		bodyc = Color.ORANGE
+	elif name == str(player_list.keys()[3]):
+		bodyc = Color.RED
+	
+	GameManager.players = player_list.keys()
+	
+	#outlinec = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
+	player_color = outlinec
+	body_color = bodyc
+	eye_color = eyec
+	
+	set_color.rpc(outlinec, bodyc, eyec)
 
-# --------------------------------------------------
-# COLOUR
-# --------------------------------------------------
+@rpc("authority", "call_local")
+func set_color(new_color: Color, bodyc, eyec) -> void:
+	for obj in body:
+		var mesh: MeshInstance3D = obj
+		var material: StandardMaterial3D = mesh.material_override
+		var new_mat: StandardMaterial3D = material.duplicate()
+		new_mat.albedo_color = bodyc
+		
+		new_mat.stencil_color = new_color
+		mesh.material_override = new_mat
+		
+		if new_color == Color.GREEN:
+			print("Client 2")
+	
+	for obj in eyes:
+		var mesh: MeshInstance3D = obj
+		var material: StandardMaterial3D = mesh.material_override
+		var new_mat: StandardMaterial3D = material.duplicate()
+		new_mat.albedo_color = eyec
+		new_mat.stencil_color = new_color
+		mesh.material_override = new_mat
+		
+	for obj in Obody:
+		var mesh: MeshInstance3D = obj
+		var material: StandardMaterial3D = mesh.material_override
+		var new_mat: StandardMaterial3D = material.duplicate()
+		new_mat.stencil_color = new_color
+		mesh.material_override = new_mat
+	
+	for obj in Oeyes:
+		var mesh: MeshInstance3D = obj
+		var material: StandardMaterial3D = mesh.material_override
+		var new_mat: StandardMaterial3D = material.duplicate()
+		new_mat.stencil_color = new_color
+		mesh.material_override = new_mat
 
-signal color_changing(color)
-
-func colour_change():
-	if name == GameManager.players[0]:
-		mat.albedo_color = Color(0.0, 1.0, 1.0)
-		set_color(Color(0.0, 1.0, 1.0))
-	elif name == GameManager.players[1]:
-		mat.albedo_color = Color(0.0, 1.0, 0.0)
-		set_color(Color(0.0, 1.0, 0.0))
-	elif name == GameManager.players[2]:
-		mat.albedo_color = Color(1.0, 0.5, 0.0)
-		color_changing.emit(Color(1.0, 0.5, 0.0))
-	elif name == GameManager.players[3]:
-		mat.albedo_color = Color(1.0, 0.0, 0.0)
-		color_changing.emit(Color(1.0, 0.0, 0.0))
-
-func set_color(new_color: Color) -> void:
-	if multiplayer.is_server():
-		_set_color.rpc(new_color)
-
-@rpc("authority", "call_local", "reliable")
-func _set_color(new_color: Color) -> void:
-	color_changing.emit(new_color)
-
-
-
-@rpc("any_peer", "reliable")
+@rpc("any_peer","call_local")
 func spawn_location(pos: Vector3) -> void:
-	global_position = pos
+	position = pos
