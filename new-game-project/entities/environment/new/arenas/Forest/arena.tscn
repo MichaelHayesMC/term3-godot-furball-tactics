@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c1y0se7c08qwa"]
+
+[ext_resource type="Script" uid="uid://bsw82u1grexo1" path="res://entities/environment/new/arenas/arena.gd" id="1_ppyy7"]
+[ext_resource type="PackedScene" uid="uid://dvm600yohx2b0" path="res://entities/environment/new/arenas/Forest/map_1.tscn" id="2_utvov"]
+[ext_resource type="Texture2D" uid="uid://di121otsvx1yl" path="res://entities/environment/new/Background.jpg" id="3_3ler3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0qur"]
+albedo_color = Color(0.654902, 0.9411765, 0.4509804, 1)
+albedo_texture = ExtResource("3_3ler3")
+albedo_texture_force_srgb = true
+emission = Color(1, 1, 1, 1)
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+
+[node name="Arena" type="Node3D" unique_id=544702922]
+script = ExtResource("1_ppyy7")
+
+[node name="WSpawner" type="Marker3D" parent="." unique_id=1155907842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.722668, 0, 10.897245)
+
+[node name="ESpawner" type="Marker3D" parent="." unique_id=1859249715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.196068, -3.8146973e-06, 23.789139)
+
+[node name="NSpawner" type="Marker3D" parent="." unique_id=26639219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.613972, 0, -20.030186)
+
+[node name="SSpawner" type="Marker3D" parent="." unique_id=2147249295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.981173, 0, 28.098524)
+
+[node name="Map1" parent="." unique_id=936527883 instance=ExtResource("2_utvov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=222895941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3748169, -13.6008415, 0.061426163)
+size = Vector3(227, 0.06921387, 164)
+material = SubResource("StandardMaterial3D_f0qur")

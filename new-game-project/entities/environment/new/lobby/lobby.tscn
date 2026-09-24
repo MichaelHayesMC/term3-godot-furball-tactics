@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dvgjggr7vfo31"]
+
+[ext_resource type="PackedScene" uid="uid://cne5jmp6m2fbm" path="res://entities/environment/new/lobby/Lobby.glb" id="1_pvp26"]
+[ext_resource type="Texture2D" uid="uid://di121otsvx1yl" path="res://entities/environment/new/Background.jpg" id="2_ckt2i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ci0dj"]
+albedo_color = Color(0.8156863, 0.9098039, 1, 1)
+albedo_texture = ExtResource("2_ckt2i")
+albedo_texture_force_srgb = true
+emission = Color(1, 1, 1, 1)
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+
+[node name="Lobby" type="Node3D" unique_id=162276335]
+
+[node name="Lobby" parent="." unique_id=903582420 instance=ExtResource("1_pvp26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Lobby" unique_id=706997533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3748169, -13.6008415, 0.061426163)
+size = Vector3(227, 0.06921387, 164)
+material = SubResource("StandardMaterial3D_ci0dj")

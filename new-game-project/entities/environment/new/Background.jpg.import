@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di121otsvx1yl"
-path.s3tc="res://.godot/imported/Background.jpg-4be284026cf2a43afe7de03922d7440a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/environment/new/arenas/Background.jpg"
-dest_files=["res://.godot/imported/Background.jpg-4be284026cf2a43afe7de03922d7440a.s3tc.ctex"]
+source_file="res://entities/environment/new/Background.jpg"
+dest_files=["res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.s3tc.ctex"]
 
 [params]
 
