@@ -1,8 +1,8 @@
-extends ColorRect
+extends TextureRect
 
 signal card_selected(card_id: int)
 
-var default_color = color
+#var default_color = color
 var enabled = true
 
 var card_id: int
@@ -12,6 +12,9 @@ var card_color: Color
 var card_tier: String
 var card_emblem: Color # Will change to texture
 
+func _ready() -> void:
+	$Panel.hide()
+
 func setup_card(id: int, data: Dictionary) -> void:
 	card_id = id
 	card_name = data["name"]
@@ -20,10 +23,12 @@ func setup_card(id: int, data: Dictionary) -> void:
 	card_tier = data["tier"]
 	card_emblem = data["emblem_texture"]
 	
-	$Label.text = card_name
-	$Label2.text = card_description
-	color = card_color
-	$Icon.color = card_emblem
+	$".".texture = data["decal"]
+	
+	#$Label.text = card_name
+	#$Label2.text = card_description
+	#color = card_color
+	#$Icon.color = card_emblem
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
@@ -45,7 +50,7 @@ func effect_add():
 	pass
 
 func _on_mouse_entered() -> void:
-	color = Color(0.815, 0.344, 0.719, 1.0)
+	$Panel.show()
 
 func _on_mouse_exited() -> void:
-	color = card_color
+	$Panel.hide()

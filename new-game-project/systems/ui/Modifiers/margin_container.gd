@@ -12,7 +12,8 @@ var CardData = [
 		"color": Color(1.0, 1.0, 1.0, 1.0),
 		"tier": "Common",
 		"emblem_texture": Color(1.0, 0.0, 0.0, 1.0), # Will change to a texture
-		"value" : 0.05
+		"value" : 0.05,
+		"decal" : preload("uid://dlibjiki5mxgt")
 	},
 	{
 		"name": "ATK SPEED +",
@@ -20,7 +21,8 @@ var CardData = [
 		"color": Color(0.223, 0.597, 0.626, 1.0),
 		"tier": "Uncommon",
 		"emblem_texture": Color(1.0, 0.0, 0.0, 1.0), # Will change to a texture
-		"value" : 0.2
+		"value" : 0.2,
+		"decal" : preload("uid://c0tjf7gyu0l4d")
 	},
 	{
 		"name": "MOVE SPEED",
@@ -28,7 +30,8 @@ var CardData = [
 		"color": Color(1.0, 1.0, 1.0, 1.0),
 		"tier": "Common",
 		"emblem_texture": Color(0.0, 0.589, 0.752, 1.0), # Will change to a texture
-		"value" : 0.05
+		"value" : 0.05,
+		"decal" : preload("uid://bha8fihem71wq")
 	},
 	{
 		"name": "MOVE SPEED +",
@@ -36,23 +39,35 @@ var CardData = [
 		"color": Color(0.223, 0.597, 0.626, 1.0),
 		"tier": "Uncommon",
 		"emblem_texture": Color(0.0, 0.589, 0.752, 1.0), # Will change to a texture
-		"value" : 0.2
+		"value" : 0.2,
+		"decal" : preload("uid://fcjgv23ybdqb")
 	},
 	{
-		"name": "GHOST WALK (WIP)",
+		"name": "BIGGER BULLETS",
+		"description": "Increases the size of your bullets",
+		"color": Color(0.223, 0.597, 0.626, 1.0),
+		"tier": "Uncommon",
+		"emblem_texture": Color(0.0, 0.589, 0.752, 1.0), # Will change to a texture
+		"value" : 0.5,
+		"decal" : preload("uid://duewe1uysb23u")
+	},
+	{
+		"name": "PHANTOM DASH",
 		"description": "Provides Intangibility for 5 seconds to obstacles",
 		"color": Color(0.813, 0.267, 0.771, 1.0),
 		"tier": "Epic",
 		"emblem_texture": Color(1.0, 1.0, 1.0, 1.0), # Will change to a texture
-		"value" : null
+		"value" : null,
+		"decal" : preload("uid://b0pnw8xd413cv")
 	},
 	{
-		"name": "ECHO SHIELD (WIP)",
+		"name": "YARN SHIELD",
 		"description": "Froms a defensive barrier around the player providing an extra life (One time use)",
 		"color": Color(1.0, 0.78, 0.231, 1.0),
 		"tier": "Legendary",
 		"emblem_texture": Color(0.375, 0.001, 0.488, 1.0), # Will change to a texture
-		"value" : null
+		"value" : null,
+		"decal" : preload("uid://cvtcnk8twh82x")
 	}
 ]
 
@@ -60,7 +75,7 @@ func _ready() -> void:
 	var peer_id := multiplayer.get_unique_id()
 
 	current_player = get_node_or_null(
-		"../../../Players/" + str(peer_id)
+		"../../../" + str(peer_id)
 	)
 
 	if !multiplayer.is_server():
@@ -98,7 +113,6 @@ func generate_cards() -> void:
 			rng.randi_range(0, CardData.size() - 1)
 		)
 		
-		
 	card_loader.rpc(card_ids)
 
 @rpc("authority", "call_local", "reliable")
@@ -108,7 +122,7 @@ func card_loader(card_ids: Array[int]) -> void:
 	for row in range(2):
 		var row_load := HBoxContainer.new()
 		$VBoxContainer.add_child(row_load)
-		row_load.add_theme_constant_override("separation", 70)
+		row_load.add_theme_constant_override("separation", 30)
 
 		for column in range(4):
 			var card_id: int = card_ids[index]
@@ -135,12 +149,12 @@ func _on_card_selected(card_id: int) -> void:
 func done_state(player):
 	GameManager.players_ready += 1
 	
-	if player == GameManager.players[0]:
+	if player == str(GameManager.players[0]):
 		$"../PlayerBar/Player_Done".show()
-	elif player == GameManager.players[1]:
+	elif player == str(GameManager.players[1]):
 			$"../PlayerBar/Player_Done2".show()
-	elif player == GameManager.players[2]:
+	elif player == str(GameManager.players[2]):
 			$"../PlayerBar/Player_Done3".show()
-	elif player == GameManager.players[3]:
+	elif player == str(GameManager.players[3]):
 			$"../PlayerBar/Player_Done4".show()
 		

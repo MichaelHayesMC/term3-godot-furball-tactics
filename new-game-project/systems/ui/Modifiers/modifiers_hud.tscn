@@ -4,11 +4,25 @@
 [ext_resource type="Script" uid="uid://6kn6mybmhnpv" path="res://systems/ui/Modifiers/margin_container.gd" id="1_of6fc"]
 [ext_resource type="Script" uid="uid://dqor8sg8e55ca" path="res://systems/ui/Modifiers/modifiers_hud.gd" id="1_r70bm"]
 [ext_resource type="Script" uid="uid://cdvgd4eti7xxw" path="res://systems/ui/Modifiers/player_bar.gd" id="6_11yj6"]
-[ext_resource type="PackedScene" uid="uid://0ydfatbbqu2b" path="res://systems/ui/Modifiers/player_pfp.tscn" id="6_hfdmc"]
 [ext_resource type="Texture2D" uid="uid://f326unkf1dj3" path="res://systems/ui/Modifiers/12906344.png" id="6_of6fc"]
+[ext_resource type="Texture2D" uid="uid://do3jybhyfm40x" path="res://systems/ui/player_icons/Pfp1.png" id="7_2yn7v"]
+[ext_resource type="Texture2D" uid="uid://dm87d3p37tl2h" path="res://systems/ui/player_icons/Pfp2.png" id="8_a4mxn"]
+[ext_resource type="Texture2D" uid="uid://lv8c8pr8ql1i" path="res://systems/ui/player_icons/Pfp3.png" id="9_4tm5c"]
+[ext_resource type="Texture2D" uid="uid://7un6wbab03ly" path="res://systems/ui/player_icons/Pfp4.png" id="10_fulp0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfdmc"]
-bg_color = Color(1, 0.92053556, 0.9052289, 1)
+[sub_resource type="Gradient" id="Gradient_gqymq"]
+colors = PackedColorArray(0.034150742, 0.14632446, 0.3739376, 1, 0.20942885, 0.20942888, 0.20942879, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rjl10"]
+gradient = SubResource("Gradient_gqymq")
+fill = 1
+fill_from = Vector2(0.49317408, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4tm5c"]
+texture = SubResource("GradientTexture2D_rjl10")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2m86"]
+bg_color = Color(0, 0, 0, 0.3019608)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hfdmc"]
 
@@ -29,13 +43,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hfdmc")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4tm5c")
 
 [node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=1973646255]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = 67.0
 offset_top = -482.0
 offset_right = 1634.0
 offset_bottom = 482.0
@@ -60,6 +75,7 @@ anchor_bottom = 1.0
 offset_left = -324.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2m86")
 script = ExtResource("6_11yj6")
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/PlayerBar" unique_id=379146366]
@@ -72,30 +88,34 @@ offset_left = -140.0
 offset_right = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 70
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 70
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/PlayerBar/MarginContainer" unique_id=1689564286]
 layout_mode = 2
-theme_override_constants/separation = 75
+theme_override_constants/separation = 30
 
-[node name="Player_Pfp" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=959515229 instance=ExtResource("6_hfdmc")]
+[node name="Player_Pfp" type="TextureRect" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=1857704105]
 layout_mode = 2
-color = Color(0, 1, 1, 1)
+texture = ExtResource("7_2yn7v")
+expand_mode = 4
 
-[node name="Player_Pfp2" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=1552849712 instance=ExtResource("6_hfdmc")]
+[node name="Player_Pfp2" type="TextureRect" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=668317962]
 layout_mode = 2
-color = Color(0, 1, 0, 1)
+texture = ExtResource("8_a4mxn")
+expand_mode = 4
 
-[node name="Player_Pfp3" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=591252076 instance=ExtResource("6_hfdmc")]
+[node name="Player_Pfp3" type="TextureRect" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=1956735412]
 layout_mode = 2
-color = Color(1, 0.49803922, 0, 1)
+texture = ExtResource("9_4tm5c")
+expand_mode = 4
 
-[node name="Player_Pfp4" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=619940673 instance=ExtResource("6_hfdmc")]
+[node name="Player_Pfp4" type="TextureRect" parent="Background/PlayerBar/MarginContainer/VBoxContainer" unique_id=99325178]
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+texture = ExtResource("10_fulp0")
+expand_mode = 4
 
 [node name="Player_Done" type="TextureRect" parent="Background/PlayerBar" unique_id=476092115]
 visible = false
