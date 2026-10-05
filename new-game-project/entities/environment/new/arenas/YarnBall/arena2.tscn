@@ -8,6 +8,7 @@
 albedo_color = Color(0.654902, 0.19215687, 0.4509804, 1)
 albedo_texture = ExtResource("3_hkv3l")
 albedo_texture_force_srgb = true
+albedo_texture_msdf = true
 emission = Color(1, 1, 1, 1)
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0

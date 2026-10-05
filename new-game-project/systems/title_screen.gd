@@ -16,6 +16,14 @@ func _on_join_tube_pressed() -> void:
 	Network.tube_join(session_id.text)
 	hide()
 
+func _on_host_button_pressed() -> void:
+	Network.tube_create()
+	hide()
+
+func _on_join_button_pressed() -> void:
+	Network.tube_join(%LobbyID.text)
+	hide()
+
 func on_error_raised(_code, _message):
 	%JoinTube.disabled
 	Network.clean_up_signals()

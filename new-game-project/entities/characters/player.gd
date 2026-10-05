@@ -49,6 +49,7 @@ var moving
 var shooting := true
 var health := 1
 
+@export var can_shoot := false
 
 @onready var body = [
 	circle, circle_001, cube, 
@@ -258,7 +259,7 @@ func update_score(new_score: int):
 
 @rpc("any_peer", "call_local", "reliable")
 func shoot():
-	if shooting:
+	if shooting and can_shoot:
 		shooting = false
 
 		var bullet = Bullet.instantiate()

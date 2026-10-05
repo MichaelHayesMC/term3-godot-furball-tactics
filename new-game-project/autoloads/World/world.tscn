@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bj34rktmx0wv0" path="res://entities/environment/new/arenas/YarnBall/arena2.tscn" id="3_rek0e"]
 [ext_resource type="PackedScene" uid="uid://cfv4rxkda6xi7" path="res://entities/environment/new/arenas/Tropical/arena3.tscn" id="4_1ejtd"]
 [ext_resource type="PackedScene" uid="uid://btg117njqy6w6" path="res://systems/title_screen.tscn" id="5_lxdpt"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="7_1ejtd"]
+[ext_resource type="AudioStream" uid="uid://brvrr6ath1les" path="res://catch22music-retro-80s-fusion-electronic-groove-full-354739.mp3" id="7_rek0e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -95,8 +97,9 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="LobbyUI/PanelContainer/MarginContainer" unique_id=301985865]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_1ejtd")
 theme_override_font_sizes/font_size = 60
-text = "Start"
+text = "START"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=38147938]
 layer = 3
@@ -107,5 +110,11 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2095964118]
+stream = ExtResource("7_rek0e")
+autoplay = true
+bus = &"Background Music"
+playback_type = 1
 
 [connection signal="pressed" from="LobbyUI/PanelContainer/MarginContainer/Start" to="." method="_on_start_pressed"]

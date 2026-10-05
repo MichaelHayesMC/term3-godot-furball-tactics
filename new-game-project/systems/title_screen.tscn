@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://btg117njqy6w6"]
 
 [ext_resource type="Script" uid="uid://do6cgke8pn5fh" path="res://systems/title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://ctb7so77p5bqp" path="res://1.png" id="2_5j1kf"]
+[ext_resource type="Texture2D" uid="uid://dyp1hdxosupyu" path="res://Host Lobby (1).png" id="3_k3t45"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://Host Lobby (5).png" id="4_6c8or"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="5_erwwm"]
+[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://Host Lobby (6).png" id="6_uq1rm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_68yga"]
+font = ExtResource("5_erwwm")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68yga"]
+draw_center = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_nnsk1"]
 line_spacing = 0.0
@@ -9,7 +21,99 @@ font_size = 131
 [node name="TitleScreen" type="CanvasLayer" unique_id=167105902]
 script = ExtResource("1_v6p8y")
 
+[node name="Background" type="TextureRect" parent="." unique_id=669171026]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5j1kf")
+
+[node name="Title" type="TextureRect" parent="." unique_id=1763012457]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("3_k3t45")
+
+[node name="Interactables" type="Control" parent="." unique_id=595784691]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HostButton" type="TextureButton" parent="Interactables" unique_id=1787508012]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15364583
+anchor_top = 0.5777778
+anchor_right = 0.5046875
+anchor_bottom = 0.68333334
+offset_left = 288.85416
+offset_top = 600.8889
+offset_right = 948.8125
+offset_bottom = 710.6667
+texture_normal = ExtResource("4_6c8or")
+
+[node name="HostText" type="Label" parent="Interactables/HostButton" unique_id=448065670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HOST LOBBY"
+label_settings = SubResource("LabelSettings_68yga")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JoinButton" type="TextureButton" parent="Interactables" unique_id=642849587]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 376.0
+offset_top = 788.0
+offset_right = 883.0
+offset_bottom = 967.0
+texture_normal = ExtResource("6_uq1rm")
+
+[node name="LobbyContainer" type="TextureButton" parent="Interactables" unique_id=783562189]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15364583
+anchor_top = 0.69166666
+anchor_right = 0.5046875
+anchor_bottom = 0.7972222
+offset_left = 288.85416
+offset_top = 737.3333
+offset_right = 948.8125
+offset_bottom = 847.1111
+texture_normal = ExtResource("4_6c8or")
+
+[node name="LobbyID" type="LineEdit" parent="Interactables/LobbyContainer" unique_id=532644449]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10682493
+anchor_top = 0.14035088
+anchor_right = 0.89317507
+anchor_bottom = 0.8596491
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
+theme_override_colors/font_placeholder_color = Color(0.38170263, 0.38170347, 0.3817029, 0.6)
+theme_override_colors/selection_color = Color(0.5019608, 0.5019608, 0.5019608, 0)
+theme_override_fonts/font = ExtResource("5_erwwm")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_68yga")
+placeholder_text = "# ENTER LOBBY ID"
+alignment = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1562136345]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,12 +175,12 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 40)
 layout_mode = 2
-placeholder_text = "Session ID"
+placeholder_text = "Lobby ID"
 
 [node name="JoinTube" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=799688603]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Join"
+text = "Join Lobby"
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1764793694]
 layout_mode = 2
@@ -84,7 +188,9 @@ layout_mode = 2
 [node name="CreateTube" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1158060192]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Create Tube"
+text = "Create Lobby"
 
+[connection signal="pressed" from="Interactables/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Interactables/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/TubeMenu/JoinTube" to="." method="_on_join_tube_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/TubeMenu/CreateTube" to="." method="_on_create_tube_pressed"]
