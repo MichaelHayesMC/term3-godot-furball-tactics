@@ -8,6 +8,7 @@ func _ready() -> void:
 	if OS.has_feature('server'):
 		Network.start_server()
 
+######################################### Old GUI
 func _on_create_tube_pressed() -> void:
 	Network.tube_create()
 	hide()
@@ -16,12 +17,17 @@ func _on_join_tube_pressed() -> void:
 	Network.tube_join(session_id.text)
 	hide()
 
+######################################### New GUI
 func _on_host_button_pressed() -> void:
 	Network.tube_create()
 	hide()
 
 func _on_join_button_pressed() -> void:
 	Network.tube_join(%LobbyID.text)
+	multiplayer.connected_to_server.connect(joinable)
+
+# Only plays this function when the client has successfully connected to a hosted p2p server
+func joinable():
 	hide()
 
 func on_error_raised(_code, _message):

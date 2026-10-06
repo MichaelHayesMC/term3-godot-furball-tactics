@@ -1,45 +1,77 @@
 [gd_scene format=3 uid="uid://eo30kruldshw"]
 
 [ext_resource type="Script" uid="uid://bk3u4nuea5lx8" path="res://systems/ui/HUD/timer_hud.gd" id="1_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://Join_Button.png" id="1_kco8j"]
 [ext_resource type="PackedScene" uid="uid://dm0a8tcy3qrnr" path="res://systems/ui/Modifiers/modifiers_hud.tscn" id="2_uo2fv"]
 [ext_resource type="Script" uid="uid://i1nklnuj25uj" path="res://systems/ui/Modifiers/h_box_container.gd" id="3_047uy"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="3_kco8j"]
 [ext_resource type="Texture2D" uid="uid://do3jybhyfm40x" path="res://systems/ui/player_icons/Pfp1.png" id="4_imfy1"]
+[ext_resource type="Texture2D" uid="uid://c32o4qe4adwwo" path="res://Host Lobby (7).png" id="4_non70"]
 [ext_resource type="Texture2D" uid="uid://dm87d3p37tl2h" path="res://systems/ui/player_icons/Pfp2.png" id="5_kco8j"]
 [ext_resource type="Script" uid="uid://dthe1ihliim5j" path="res://systems/ui/HUD/scoreboard.gd" id="5_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://lv8c8pr8ql1i" path="res://systems/ui/player_icons/Pfp3.png" id="6_non70"]
 [ext_resource type="Texture2D" uid="uid://7un6wbab03ly" path="res://systems/ui/player_icons/Pfp4.png" id="7_qpx4v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qfnet"]
-font_size = 90
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("3_kco8j")
+font_size = 72
+font_color = Color(1, 1, 1, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68yga"]
+draw_center = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_i7141"]
-font_size = 30
+font = ExtResource("3_kco8j")
+font_size = 35
+font_color = Color(1, 1, 1, 0.78431374)
 
 [node name="HUD" type="CanvasLayer" unique_id=1678199065]
 layer = 0
 
-[node name="Timer_HUD" type="ColorRect" parent="." unique_id=36447497 node_paths=PackedStringArray("timer_lb")]
-anchors_preset = -1
-anchor_left = 0.4079861
-anchor_right = 0.5920139
-anchor_bottom = 0.13271604
-grow_horizontal = 2
-color = Color(1, 1, 1, 0.49803922)
+[node name="Timer_HUD" type="TextureRect" parent="." unique_id=1158385346 node_paths=PackedStringArray("timer_lb")]
+self_modulate = Color(1, 1, 1, 0.78431374)
+offset_left = 1238.3441
+offset_top = 152.09091
+offset_right = 1643.7686
+offset_bottom = 373.51263
+rotation = 3.1415925
+scale = Vector2(1.3715084, 1.3715084)
+texture = ExtResource("1_kco8j")
+expand_mode = 1
 script = ExtResource("1_6fi6k")
 timer_lb = NodePath("Timer_Lb")
 default_in_game_minutes = 0
-default_in_game_seconds = 30
+default_in_game_seconds = 10
 modifiers_hud = ExtResource("2_uo2fv")
 
 [node name="Timer_Lb" type="Label" parent="Timer_HUD" unique_id=1072311897]
-layout_mode = 0
-offset_right = 352.6667
-offset_bottom = 144.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 171.5794
+offset_top = 25.701706
+offset_right = 524.2461
+offset_bottom = 169.7017
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415927
 text = "00 : 00"
 label_settings = SubResource("LabelSettings_qfnet")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HostLobby(7)" type="TextureRect" parent="." unique_id=1249536680]
+self_modulate = Color(1, 1, 1, 0.78431374)
+offset_left = 23.999996
+offset_top = 26.0
+offset_right = 440.63135
+offset_bottom = 396.76367
+scale = Vector2(0.78486645, 0.78486645)
+texture = ExtResource("4_non70")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1629921438]
 anchors_preset = 1
@@ -89,6 +121,7 @@ offset_left = 26.0
 offset_top = 32.0
 offset_right = 517.0
 offset_bottom = 303.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_68yga")
 
 [node name="MarginContainer" type="MarginContainer" parent="Scoreboard/Panel" unique_id=456144776]
 layout_mode = 0

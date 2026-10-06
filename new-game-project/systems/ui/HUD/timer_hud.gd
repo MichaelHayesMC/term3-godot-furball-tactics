@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 @export var timer_lb: Label
 

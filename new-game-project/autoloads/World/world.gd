@@ -9,6 +9,10 @@ class_name World
 
 func _ready() -> void:
 	Network.host_creation.connect(host_creation)
+	
+	$TitleScreen.show()
+	$LobbyUI.hide()
+	$CanvasLayer.show()
 
 func host_creation():
 	$LobbyUI.show()
@@ -20,6 +24,7 @@ func _on_start_pressed() -> void:
 	if len(GameManager.players) >= 2: 
 		HUD_display.rpc()
 		level_pick()
+		
 
 func level_pick():
 	if !multiplayer.is_server():
@@ -48,6 +53,7 @@ func Level_change(chosen_level):
 
 @rpc("authority", "call_local", "reliable")
 func level_sync(level_path):
+	GameManager.can_shoot = true
 	print("LOADING LEVEL ON PEER: ", multiplayer.get_unique_id())
 
 	for child in $Platform.get_children():

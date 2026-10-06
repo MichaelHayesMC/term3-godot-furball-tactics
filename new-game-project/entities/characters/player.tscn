@@ -595,7 +595,7 @@ font = ExtResource("3_weqkf")
 font_size = 56
 
 [node name="Player" type="CharacterBody3D" unique_id=1438579107 groups=["players"]]
-collision_layer = 5
+collision_layer = 21
 collision_mask = 9
 script = ExtResource("1_iwpo4")
 Bullet = ExtResource("2_g2els")
@@ -784,12 +784,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LabelSession" type="Label" parent="CanvasLayer/Control" unique_id=925188782]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=2129432337]
 layout_mode = 1
-offset_left = 38.0
-offset_top = 35.0
-offset_right = 257.0
-offset_bottom = 101.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LabelSession" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=925188782]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 text = "Label Session"
 label_settings = SubResource("LabelSettings_b0wws")

@@ -10,6 +10,7 @@ var players_ready = 0
 
 var player_chosen = false
 
+var can_shoot = false
 
 #var username = ''
 ## peer id : { score : 0, username : str }

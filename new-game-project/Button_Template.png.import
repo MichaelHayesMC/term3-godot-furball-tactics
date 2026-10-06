@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4t2kv0mw032w"
-path="res://.godot/imported/Host Lobby (6).png-a4c3b0b38ea5cc328c3a029b23f86eb2.ctex"
+uid="uid://cq73jbpspddwi"
+path="res://.godot/imported/Button_Template.png-d725b8bd28dca36cdccf8d4752d3dcfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Host Lobby (6).png"
-dest_files=["res://.godot/imported/Host Lobby (6).png-a4c3b0b38ea5cc328c3a029b23f86eb2.ctex"]
+source_file="res://Button_Template.png"
+dest_files=["res://.godot/imported/Button_Template.png-d725b8bd28dca36cdccf8d4752d3dcfb.ctex"]
 
 [params]
 

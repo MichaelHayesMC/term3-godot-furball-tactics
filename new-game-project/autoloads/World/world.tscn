@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://coar0w52ewb50"]
 
 [ext_resource type="Script" uid="uid://dj3r6sfepuo0k" path="res://autoloads/World/world.gd" id="1_h14be"]
-[ext_resource type="PackedScene" uid="uid://c1y0se7c08qwa" path="res://entities/environment/new/arenas/Forest/arena.tscn" id="2_h14be"]
 [ext_resource type="PackedScene" uid="uid://dvgjggr7vfo31" path="res://entities/environment/new/lobby/lobby.tscn" id="3_5ypif"]
-[ext_resource type="PackedScene" uid="uid://bj34rktmx0wv0" path="res://entities/environment/new/arenas/YarnBall/arena2.tscn" id="3_rek0e"]
 [ext_resource type="PackedScene" uid="uid://cfv4rxkda6xi7" path="res://entities/environment/new/arenas/Tropical/arena3.tscn" id="4_1ejtd"]
 [ext_resource type="PackedScene" uid="uid://btg117njqy6w6" path="res://systems/title_screen.tscn" id="5_lxdpt"]
 [ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="7_1ejtd"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://Button_Template.png" id="7_lxdpt"]
 [ext_resource type="AudioStream" uid="uid://brvrr6ath1les" path="res://catch22music-retro-80s-fusion-electronic-groove-full-354739.mp3" id="7_rek0e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwgxs"]
@@ -35,9 +34,13 @@ adjustment_contrast = 0.8
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwgxs"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_68yga"]
+font = ExtResource("7_1ejtd")
+font_size = 60
+
 [node name="World" type="Node" unique_id=1774199772]
 script = ExtResource("1_h14be")
-levels = Array[PackedScene]([ExtResource("2_h14be"), ExtResource("3_rek0e"), ExtResource("4_1ejtd")])
+levels = Array[PackedScene]([ExtResource("4_1ejtd")])
 
 [node name="MultiplayerSpawner2" type="MultiplayerSpawner" parent="." unique_id=911778433]
 spawn_path = NodePath("../CanvasLayer/PlayerCursors")
@@ -74,9 +77,9 @@ far = 1000000.0
 unique_name_in_owner = true
 
 [node name="TitleScreen" parent="." unique_id=167105902 instance=ExtResource("5_lxdpt")]
+visible = false
 
 [node name="LobbyUI" type="CanvasLayer" parent="." unique_id=1542916873]
-visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="LobbyUI" unique_id=715431878]
 anchors_preset = 7
@@ -90,16 +93,31 @@ offset_right = 208.0
 offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rwgxs")
 
 [node name="MarginContainer" type="MarginContainer" parent="LobbyUI/PanelContainer" unique_id=2029051249]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="Start" type="Button" parent="LobbyUI/PanelContainer/MarginContainer" unique_id=301985865]
+[node name="StartButton" type="TextureButton" parent="LobbyUI/PanelContainer/MarginContainer" unique_id=750076123]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_1ejtd")
-theme_override_font_sizes/font_size = 60
-text = "START"
+texture_normal = ExtResource("7_lxdpt")
+
+[node name="Label" type="Label" parent="LobbyUI/PanelContainer/MarginContainer/StartButton" unique_id=783741388]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START GAME"
+label_settings = SubResource("LabelSettings_68yga")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=38147938]
 layer = 3
@@ -116,5 +134,6 @@ stream = ExtResource("7_rek0e")
 autoplay = true
 bus = &"Background Music"
 playback_type = 1
+parameters/looping = true
 
-[connection signal="pressed" from="LobbyUI/PanelContainer/MarginContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="LobbyUI/PanelContainer/MarginContainer/StartButton" to="." method="_on_start_pressed"]
