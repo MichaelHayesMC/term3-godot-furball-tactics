@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdlfn813pmn21"]
 
-[ext_resource type="PackedScene" uid="uid://7oq4j5hwmees" path="res://entities/characters/Player_Model.glb" id="1_kr6nt"]
-[ext_resource type="Script" uid="uid://dbygbobaxhn3x" path="res://entities/characters/vfx/x-ray.gd" id="2_nq7tg"]
+[ext_resource type="PackedScene" uid="uid://7oq4j5hwmees" path="res://entities/characters/player_model.glb" id="1_kr6nt"]
+[ext_resource type="Script" path="res://entities/characters/vfx/x-ray.gd" id="2_nq7tg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlfc7"]
 render_priority = 1

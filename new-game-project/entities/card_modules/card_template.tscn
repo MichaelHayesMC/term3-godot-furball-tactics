@@ -11,7 +11,7 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 corner_detail = 13
 
-[node name="Card1" type="TextureRect" unique_id=39321241]
+[node name="Card" type="TextureRect" unique_id=39321241]
 z_index = 1
 y_sort_enabled = true
 custom_minimum_size = Vector2(321, 427)
@@ -29,7 +29,7 @@ expand_mode = 1
 script = ExtResource("1_y1fi3")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="." unique_id=846253225]
+[node name="Outline" type="Panel" parent="." unique_id=846253225]
 layout_mode = 0
 anchor_left = 0.0523416
 anchor_top = -0.014880496

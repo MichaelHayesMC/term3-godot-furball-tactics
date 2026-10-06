@@ -1,34 +1,31 @@
 [gd_scene format=3 uid="uid://eo30kruldshw"]
 
-[ext_resource type="Script" uid="uid://bk3u4nuea5lx8" path="res://systems/ui/HUD/timer_hud.gd" id="1_6fi6k"]
-[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://Join_Button.png" id="1_kco8j"]
-[ext_resource type="PackedScene" uid="uid://dm0a8tcy3qrnr" path="res://systems/ui/Modifiers/modifiers_hud.tscn" id="2_uo2fv"]
-[ext_resource type="Script" uid="uid://i1nklnuj25uj" path="res://systems/ui/Modifiers/h_box_container.gd" id="3_047uy"]
-[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="3_kco8j"]
-[ext_resource type="Texture2D" uid="uid://do3jybhyfm40x" path="res://systems/ui/player_icons/Pfp1.png" id="4_imfy1"]
-[ext_resource type="Texture2D" uid="uid://c32o4qe4adwwo" path="res://Host Lobby (7).png" id="4_non70"]
-[ext_resource type="Texture2D" uid="uid://dm87d3p37tl2h" path="res://systems/ui/player_icons/Pfp2.png" id="5_kco8j"]
-[ext_resource type="Script" uid="uid://dthe1ihliim5j" path="res://systems/ui/HUD/scoreboard.gd" id="5_uo2fv"]
-[ext_resource type="Texture2D" uid="uid://lv8c8pr8ql1i" path="res://systems/ui/player_icons/Pfp3.png" id="6_non70"]
-[ext_resource type="Texture2D" uid="uid://7un6wbab03ly" path="res://systems/ui/player_icons/Pfp4.png" id="7_qpx4v"]
+[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://systems/ui/join_button.png" id="1_c0mec"]
+[ext_resource type="Script" uid="uid://bk3u4nuea5lx8" path="res://systems/ui/hud/timer_hud.gd" id="2_u1k03"]
+[ext_resource type="PackedScene" uid="uid://dm0a8tcy3qrnr" path="res://systems/ui/modifiers/modifiers_hud.tscn" id="3_c0mec"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="4_c0mec"]
+[ext_resource type="Texture2D" uid="uid://c32o4qe4adwwo" path="res://systems/ui/scoreboard_panel.png" id="5_u1k03"]
+[ext_resource type="Script" uid="uid://i1nklnuj25uj" path="res://systems/ui/modifiers/h_box_container.gd" id="6_u1k03"]
+[ext_resource type="Texture2D" uid="uid://do3jybhyfm40x" path="res://systems/ui/player_icons/pfp1.png" id="7_c0mec"]
+[ext_resource type="Texture2D" uid="uid://dm87d3p37tl2h" path="res://systems/ui/player_icons/pfp2.png" id="8_c0mec"]
+[ext_resource type="Texture2D" uid="uid://lv8c8pr8ql1i" path="res://systems/ui/player_icons/pfp3.png" id="9_c0mec"]
+[ext_resource type="Texture2D" uid="uid://7un6wbab03ly" path="res://systems/ui/player_icons/pfp4.png" id="10_c0mec"]
+[ext_resource type="Script" uid="uid://dthe1ihliim5j" path="res://systems/ui/hud/scoreboard.gd" id="11_defla"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qfnet"]
-font = ExtResource("3_kco8j")
+font = ExtResource("4_c0mec")
 font_size = 72
 font_color = Color(1, 1, 1, 0.78431374)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68yga"]
-draw_center = false
-
 [sub_resource type="LabelSettings" id="LabelSettings_i7141"]
-font = ExtResource("3_kco8j")
-font_size = 35
+font = ExtResource("4_c0mec")
+font_size = 48
 font_color = Color(1, 1, 1, 0.78431374)
 
 [node name="HUD" type="CanvasLayer" unique_id=1678199065]
 layer = 0
 
-[node name="Timer_HUD" type="TextureRect" parent="." unique_id=1158385346 node_paths=PackedStringArray("timer_lb")]
+[node name="TimerHUD" type="TextureRect" parent="." unique_id=1158385346 node_paths=PackedStringArray("timer_lb")]
 self_modulate = Color(1, 1, 1, 0.78431374)
 offset_left = 1238.3441
 offset_top = 152.09091
@@ -36,15 +33,15 @@ offset_right = 1643.7686
 offset_bottom = 373.51263
 rotation = 3.1415925
 scale = Vector2(1.3715084, 1.3715084)
-texture = ExtResource("1_kco8j")
+texture = ExtResource("1_c0mec")
 expand_mode = 1
-script = ExtResource("1_6fi6k")
-timer_lb = NodePath("Timer_Lb")
+script = ExtResource("2_u1k03")
+timer_lb = NodePath("TimerLb")
 default_in_game_minutes = 0
 default_in_game_seconds = 30
-modifiers_hud = ExtResource("2_uo2fv")
+modifiers_hud = ExtResource("3_c0mec")
 
-[node name="Timer_Lb" type="Label" parent="Timer_HUD" unique_id=1072311897]
+[node name="TimerLb" type="Label" parent="TimerHUD" unique_id=1072311897]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,17 +60,7 @@ label_settings = SubResource("LabelSettings_qfnet")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HostLobby(7)" type="TextureRect" parent="." unique_id=1249536680]
-self_modulate = Color(1, 1, 1, 0.78431374)
-offset_left = 23.999996
-offset_top = 26.0
-offset_right = 440.63135
-offset_bottom = 396.76367
-scale = Vector2(0.78486645, 0.78486645)
-texture = ExtResource("4_non70")
-expand_mode = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1629921438]
+[node name="IconContainer" type="HBoxContainer" parent="." unique_id=1629921438]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -84,26 +71,26 @@ offset_bottom = 144.0
 grow_horizontal = 0
 theme_override_constants/separation = 15
 alignment = 2
-script = ExtResource("3_047uy")
+script = ExtResource("6_u1k03")
 
-[node name="Player_Pfp" type="TextureRect" parent="HBoxContainer" unique_id=1157569266]
+[node name="PlayerPfp" type="TextureRect" parent="IconContainer" unique_id=1157569266]
 layout_mode = 2
-texture = ExtResource("4_imfy1")
+texture = ExtResource("7_c0mec")
 expand_mode = 3
 
-[node name="Player_Pfp2" type="TextureRect" parent="HBoxContainer" unique_id=1803022824]
+[node name="PlayerPfp2" type="TextureRect" parent="IconContainer" unique_id=1803022824]
 layout_mode = 2
-texture = ExtResource("5_kco8j")
+texture = ExtResource("8_c0mec")
 expand_mode = 3
 
-[node name="Player_Pfp3" type="TextureRect" parent="HBoxContainer" unique_id=1476994473]
+[node name="PlayerPfp3" type="TextureRect" parent="IconContainer" unique_id=1476994473]
 layout_mode = 2
-texture = ExtResource("6_non70")
+texture = ExtResource("9_c0mec")
 expand_mode = 3
 
-[node name="Player_Pfp4" type="TextureRect" parent="HBoxContainer" unique_id=248482428]
+[node name="PlayerPfp4" type="TextureRect" parent="IconContainer" unique_id=248482428]
 layout_mode = 2
-texture = ExtResource("7_qpx4v")
+texture = ExtResource("10_c0mec")
 expand_mode = 3
 
 [node name="Scoreboard" type="Control" parent="." unique_id=2012541235]
@@ -113,85 +100,95 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_uo2fv")
+script = ExtResource("11_defla")
 
-[node name="Panel" type="Panel" parent="Scoreboard" unique_id=1301196090]
+[node name="ScoreboardBackground" type="TextureRect" parent="Scoreboard" unique_id=1249536680]
+self_modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 0
-offset_left = 26.0
-offset_top = 32.0
-offset_right = 517.0
-offset_bottom = 303.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_68yga")
+anchor_left = 0.012499998
+anchor_top = 0.024074074
+anchor_right = 0.18281248
+anchor_bottom = 0.29351848
+offset_right = 89.63138
+offset_bottom = 79.7637
+scale = Vector2(0.78486645, 0.78486645)
+texture = ExtResource("5_u1k03")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Scoreboard/Panel" unique_id=456144776]
-layout_mode = 0
-offset_right = 496.0
-offset_bottom = 263.0
-theme_override_constants/margin_left = 20
+[node name="MarginContainer" type="MarginContainer" parent="Scoreboard/ScoreboardBackground" unique_id=456144776]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0061162226
+anchor_top = 0.020618556
+anchor_right = 0.9785933
+anchor_bottom = 0.9862543
+theme_override_constants/margin_left = 23
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Scoreboard/Panel/MarginContainer" unique_id=79246595]
+[node name="VBoxContainer" type="VBoxContainer" parent="Scoreboard/ScoreboardBackground/MarginContainer" unique_id=79246595]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=257719244]
+[node name="Title" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer" unique_id=257719244]
 layout_mode = 2
 text = "Scores:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Player1UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=464970574]
+[node name="Player1UI" type="HBoxContainer" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer" unique_id=464970574]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player1UI" unique_id=1405772083]
+[node name="Label" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player1UI" unique_id=1405772083]
 layout_mode = 2
 text = "Player 1:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player1UI" unique_id=1382075756]
+[node name="Score" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player1UI" unique_id=1382075756]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Player2UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1448281325]
+[node name="Player2UI" type="HBoxContainer" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer" unique_id=1448281325]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player2UI" unique_id=893231858]
+[node name="Label" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player2UI" unique_id=893231858]
 layout_mode = 2
 text = "Player 2:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player2UI" unique_id=2110283001]
+[node name="Score" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player2UI" unique_id=2110283001]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Player3UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1984088565]
+[node name="Player3UI" type="HBoxContainer" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer" unique_id=1984088565]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player3UI" unique_id=651684035]
+[node name="Label" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player3UI" unique_id=651684035]
 layout_mode = 2
 text = "Player 3:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player3UI" unique_id=310893383]
+[node name="Score" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player3UI" unique_id=310893383]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Player4UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1488272870]
+[node name="Player4UI" type="HBoxContainer" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer" unique_id=1488272870]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player4UI" unique_id=248139260]
+[node name="Label" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player4UI" unique_id=248139260]
 layout_mode = 2
 text = "Player 4:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player4UI" unique_id=192884132]
+[node name="Score" type="Label" parent="Scoreboard/ScoreboardBackground/MarginContainer/VBoxContainer/Player4UI" unique_id=192884132]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")

@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.981173, 0, 28.098524)
 [node name="Map1" parent="." unique_id=936527883 instance=ExtResource("2_utvov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=222895941]
+[node name="Background" type="CSGBox3D" parent="." unique_id=222895941]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3748169, -13.6008415, 0.061426163)
 use_collision = true
 size = Vector3(227, 0.06921387, 164)

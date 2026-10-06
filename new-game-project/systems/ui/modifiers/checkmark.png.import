@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlw3hds838jh6"
-path="res://.godot/imported/pointer_d.png-d58fef28e38b5a8c7128daeb10e16bd0.ctex"
+uid="uid://f326unkf1dj3"
+path="res://.godot/imported/checkmark.png-e88950241dc6f36d2eb3e5e129eaca4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/ui/Mouse Cursor/pointer_d.png"
-dest_files=["res://.godot/imported/pointer_d.png-d58fef28e38b5a8c7128daeb10e16bd0.ctex"]
+source_file="res://systems/ui/modifiers/checkmark.png"
+dest_files=["res://.godot/imported/checkmark.png-e88950241dc6f36d2eb3e5e129eaca4b.ctex"]
 
 [params]
 

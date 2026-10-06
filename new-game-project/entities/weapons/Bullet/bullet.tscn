@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtclgpudk4ih3"]
 
-[ext_resource type="Script" uid="uid://r2klvmola8m2" path="res://entities/weapons/Bullet/bullet.gd" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://r2klvmola8m2" path="res://entities/weapons/bullet/bullet.gd" id="1_yefjp"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_h1aey"]
 
@@ -18,7 +18,7 @@ radius = 1.2733467
 [node name="Bullet" type="RigidBody3D" unique_id=1417648668]
 collision_layer = 0
 collision_mask = 7
-script = ExtResource("1_mkf8s")
+script = ExtResource("1_yefjp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=901717452]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -34,12 +34,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_y25gk")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_mkf8s")
 
-[node name="Bullet_collider" type="Area3D" parent="." unique_id=1150435726]
+[node name="BulletCollider" type="Area3D" parent="." unique_id=1150435726]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bullet_collider" unique_id=481059487]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletCollider" unique_id=481059487]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_mkf8s")
 
-[connection signal="area_entered" from="Bullet_collider" to="." method="_on_bullet_collider_area_entered"]
-[connection signal="body_entered" from="Bullet_collider" to="." method="_on_bullet_collider_body_entered"]
+[connection signal="area_entered" from="BulletCollider" to="." method="_on_bullet_collider_area_entered"]
+[connection signal="body_entered" from="BulletCollider" to="." method="_on_bullet_collider_body_entered"]

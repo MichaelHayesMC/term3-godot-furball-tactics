@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://btg117njqy6w6"]
 
 [ext_resource type="Script" uid="uid://do6cgke8pn5fh" path="res://systems/title_screen.gd" id="1_v6p8y"]
-[ext_resource type="Texture2D" uid="uid://ctb7so77p5bqp" path="res://1.png" id="2_5j1kf"]
-[ext_resource type="Texture2D" uid="uid://dyp1hdxosupyu" path="res://Title.png" id="3_k3t45"]
-[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://Button_Template.png" id="4_6c8or"]
-[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="5_erwwm"]
-[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://Join_Button.png" id="6_uq1rm"]
+[ext_resource type="Texture2D" uid="uid://ctb7so77p5bqp" path="res://systems/ui/background.png" id="2_5j1kf"]
+[ext_resource type="Texture2D" uid="uid://dyp1hdxosupyu" path="res://systems/ui/title.png" id="3_k3t45"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/button_template.png" id="4_6c8or"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="5_erwwm"]
+[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://systems/ui/join_button.png" id="6_uq1rm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_68yga"]
 font = ExtResource("5_erwwm")

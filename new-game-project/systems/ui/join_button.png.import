@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4t2kv0mw032w"
-path="res://.godot/imported/Join_Button.png-6a734ffd48cfe56af76be8e5e4ba9a86.ctex"
+path="res://.godot/imported/join_button.png-939ca0ebcd68ebf3398b4bd6f0146341.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Join_Button.png"
-dest_files=["res://.godot/imported/Join_Button.png-6a734ffd48cfe56af76be8e5e4ba9a86.ctex"]
+source_file="res://systems/ui/join_button.png"
+dest_files=["res://.godot/imported/join_button.png-939ca0ebcd68ebf3398b4bd6f0146341.ctex"]
 
 [params]
 

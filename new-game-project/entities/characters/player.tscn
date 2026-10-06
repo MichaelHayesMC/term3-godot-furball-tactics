@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://ddc8k6gybq8ur"]
 
 [ext_resource type="Script" uid="uid://82l1c27xikiy" path="res://entities/characters/player.gd" id="1_iwpo4"]
-[ext_resource type="PackedScene" uid="uid://dtclgpudk4ih3" path="res://entities/weapons/Bullet/bullet.tscn" id="2_g2els"]
-[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://LilitaOne-Regular.ttf" id="3_weqkf"]
+[ext_resource type="PackedScene" uid="uid://dtclgpudk4ih3" path="res://entities/weapons/bullet/bullet.tscn" id="2_g2els"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="3_weqkf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bu0v1"]
 
@@ -567,6 +567,10 @@ stencil_mode = 2
 stencil_flags = 2
 stencil_color = Color(1, 1, 1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_b0wws"]
+font = ExtResource("3_weqkf")
+font_size = 56
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2els"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
@@ -589,10 +593,6 @@ properties/5/replication_mode = 1
 properties/6/path = NodePath(".:eye_color")
 properties/6/spawn = false
 properties/6/replication_mode = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_b0wws"]
-font = ExtResource("3_weqkf")
-font_size = 56
 
 [node name="Player" type="CharacterBody3D" unique_id=1438579107 groups=["players"]]
 collision_layer = 21
@@ -770,12 +770,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4324253, -0.026768684)
 [node name="Marker3D" type="Marker3D" parent="Weapon" unique_id=683210559]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25435662)
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1540602870]
-replication_config = SubResource("SceneReplicationConfig_g2els")
+[node name="LocalHud" type="CanvasLayer" parent="." unique_id=1341013807]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341013807]
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1508553041]
+[node name="Control" type="Control" parent="LocalHud" unique_id=1508553041]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -784,7 +781,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=2129432337]
+[node name="MarginContainer" type="MarginContainer" parent="LocalHud/Control" unique_id=2129432337]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -795,10 +792,13 @@ mouse_filter = 2
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="LabelSession" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=925188782]
+[node name="LabelSession" type="Label" parent="LocalHud/Control/MarginContainer" unique_id=925188782]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Label Session"
 label_settings = SubResource("LabelSettings_b0wws")
+
+[node name="PlayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1540602870]
+replication_config = SubResource("SceneReplicationConfig_g2els")
