@@ -41,7 +41,7 @@ expand_mode = 1
 script = ExtResource("1_6fi6k")
 timer_lb = NodePath("Timer_Lb")
 default_in_game_minutes = 0
-default_in_game_seconds = 10
+default_in_game_seconds = 30
 modifiers_hud = ExtResource("2_uo2fv")
 
 [node name="Timer_Lb" type="Label" parent="Timer_HUD" unique_id=1072311897]
@@ -140,54 +140,58 @@ layout_mode = 2
 text = "Scores:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=464970574]
+[node name="Player1UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=464970574]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1405772083]
+[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player1UI" unique_id=1405772083]
 layout_mode = 2
 text = "Player 1:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1382075756]
+[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player1UI" unique_id=1382075756]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1448281325]
+[node name="Player2UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1448281325]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=893231858]
+[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player2UI" unique_id=893231858]
 layout_mode = 2
 text = "Player 2:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2110283001]
+[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player2UI" unique_id=2110283001]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1984088565]
+[node name="Player3UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1984088565]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=651684035]
+[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player3UI" unique_id=651684035]
 layout_mode = 2
 text = "Player 3:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=310893383]
+[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player3UI" unique_id=310893383]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1488272870]
+[node name="Player4UI" type="HBoxContainer" parent="Scoreboard/Panel/MarginContainer/VBoxContainer" unique_id=1488272870]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=248139260]
+[node name="Label" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player4UI" unique_id=248139260]
 layout_mode = 2
 text = "Player 4:"
 label_settings = SubResource("LabelSettings_i7141")
 
-[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=192884132]
+[node name="Score" type="Label" parent="Scoreboard/Panel/MarginContainer/VBoxContainer/Player4UI" unique_id=192884132]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")

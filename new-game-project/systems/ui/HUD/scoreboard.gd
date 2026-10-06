@@ -1,9 +1,13 @@
 extends Control
 
-@onready var player_1: Label = $Panel/MarginContainer/VBoxContainer/HBoxContainer/Score
-@onready var player_2: Label = $Panel/MarginContainer/VBoxContainer/HBoxContainer2/Score
-@onready var player_3: Label = $Panel/MarginContainer/VBoxContainer/HBoxContainer3/Score
-@onready var player_4: Label = $Panel/MarginContainer/VBoxContainer/HBoxContainer4/Score
+@onready var player_1: Label = $Panel/MarginContainer/VBoxContainer/Player1UI/Score
+@onready var player_2: Label = $Panel/MarginContainer/VBoxContainer/Player2UI/Score
+@onready var player_3: Label = $Panel/MarginContainer/VBoxContainer/Player3UI/Score
+@onready var player_4: Label = $Panel/MarginContainer/VBoxContainer/Player4UI/Score
+@onready var player_1ui: HBoxContainer = %Player1UI
+@onready var player_2ui: HBoxContainer = %Player2UI
+@onready var player_3ui: HBoxContainer = %Player3UI
+@onready var player_4ui: HBoxContainer = %Player4UI
 
 var score_labels: Array[Label]
 
@@ -15,6 +19,18 @@ func _ready() -> void:
 		player_3,
 		player_4
 	]
+	
+	if len(GameManager.players) >= 4:
+		player_1ui.show()
+		player_2ui.show()
+		player_3ui.show()
+		player_4ui.show()
+	elif len(GameManager.players) >= 3:
+		player_4ui.hide()
+	elif len(GameManager.players) >= 2:
+		player_3ui.hide()
+		player_4ui.hide()
+		
 
 	# Wait one frame so networked players have time to spawn.
 	await get_tree().process_frame
