@@ -29,14 +29,14 @@ func _ready() -> void:
 
 func tube_create():
 	multiplayer.peer_connected.connect(add_player)
-	#multiplayer.peer_disconnected.connect(remove_player)
+	multiplayer.peer_disconnected.connect(remove_player)
 	tube_client.create_session()
 	add_player(1)
 	host_creation.emit()
 
 func tube_join(session_id: String):
 	multiplayer.peer_connected.connect(add_player)
-	#multiplayer.peer_disconnected.connect(remove_player)
+	multiplayer.peer_disconnected.connect(remove_player)
 	multiplayer.connected_to_server.connect(on_connected_to_server)
 	tube_client.join_session(session_id)
 
@@ -55,9 +55,12 @@ func add_player(peer_id):
 	
 	var mouse = MOUSE.instantiate()
 	mouse.name = str(peer_id)
-	get_tree().current_scene.get_node("CanvasLayer/PlayerCursors").add_child(mouse)
+	get_tree().current_scene.get_node("Cursors/Mouse").add_child(mouse)
 	
 	sync_player_list.rpc(players)
+
+func remove_player():
+	pass
 
 @rpc("authority", "call_local", "reliable")
 func sync_player_list(new_player_list: Dictionary):

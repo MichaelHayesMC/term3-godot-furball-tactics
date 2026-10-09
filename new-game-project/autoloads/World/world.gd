@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 	$TitleScreen.show()
 	$LobbyUI.hide()
-	$CanvasLayer.show()
+	$Cursors.show()
 
 func host_creation():
 	$LobbyUI.show()

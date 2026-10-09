@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq73jbpspddwi"
-path="res://.godot/imported/button_template.png-a965d8ef30addd9b5dde893d05cb5d32.ctex"
+uid="uid://4t2kv0mw032w"
+path="res://.godot/imported/join_button.png-a991751ac92020a16c44b550dcb00fbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://systems/ui/button_template.png"
-dest_files=["res://.godot/imported/button_template.png-a965d8ef30addd9b5dde893d05cb5d32.ctex"]
+source_file="res://systems/ui/hud/join_button.png"
+dest_files=["res://.godot/imported/join_button.png-a991751ac92020a16c44b550dcb00fbe.ctex"]
 
 [params]
 

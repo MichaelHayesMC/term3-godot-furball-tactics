@@ -1,9 +1,11 @@
 extends Control
 
-@onready var player_1: Label = $Panel/MarginContainer/VBoxContainer/Player1UI/Score
-@onready var player_2: Label = $Panel/MarginContainer/VBoxContainer/Player2UI/Score
-@onready var player_3: Label = $Panel/MarginContainer/VBoxContainer/Player3UI/Score
-@onready var player_4: Label = $Panel/MarginContainer/VBoxContainer/Player4UI/Score
+@onready var player_1: Label = $ScoreboardBackground/MarginContainer/VBoxContainer/Player1UI/Score
+@onready var player_2: Label = $ScoreboardBackground/MarginContainer/VBoxContainer/Player2UI/Score
+@onready var player_3: Label = $ScoreboardBackground/MarginContainer/VBoxContainer/Player3UI/Score
+@onready var player_4: Label = $ScoreboardBackground/MarginContainer/VBoxContainer/Player4UI/Score
+
+
 @onready var player_1ui: HBoxContainer = %Player1UI
 @onready var player_2ui: HBoxContainer = %Player2UI
 @onready var player_3ui: HBoxContainer = %Player3UI

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://eo30kruldshw"]
 
-[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://systems/ui/join_button.png" id="1_c0mec"]
+[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://systems/ui/hud/join_button.png" id="1_c0mec"]
 [ext_resource type="Script" uid="uid://bk3u4nuea5lx8" path="res://systems/ui/hud/timer_hud.gd" id="2_u1k03"]
 [ext_resource type="PackedScene" uid="uid://dm0a8tcy3qrnr" path="res://systems/ui/modifiers/modifiers_hud.tscn" id="3_c0mec"]
 [ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="4_c0mec"]
-[ext_resource type="Texture2D" uid="uid://c32o4qe4adwwo" path="res://systems/ui/scoreboard_panel.png" id="5_u1k03"]
+[ext_resource type="Texture2D" uid="uid://c32o4qe4adwwo" path="res://systems/ui/hud/scoreboard_panel.png" id="5_u1k03"]
 [ext_resource type="Script" uid="uid://i1nklnuj25uj" path="res://systems/ui/modifiers/h_box_container.gd" id="6_u1k03"]
 [ext_resource type="Texture2D" uid="uid://do3jybhyfm40x" path="res://systems/ui/player_icons/pfp1.png" id="7_c0mec"]
 [ext_resource type="Texture2D" uid="uid://dm87d3p37tl2h" path="res://systems/ui/player_icons/pfp2.png" id="8_c0mec"]

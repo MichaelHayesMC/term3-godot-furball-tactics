@@ -1,87 +1,196 @@
-[gd_scene format=3 uid="uid://hhybejs82qhl"]
+[gd_scene format=3 uid="uid://btg117njqy6w6"]
 
-[ext_resource type="PackedScene" uid="uid://mgp02mkor0at" path="res://scenes/test_arena.tscn" id="2_sa3yf"]
+[ext_resource type="Script" uid="uid://do6cgke8pn5fh" path="res://systems/ui/hud/title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://ctb7so77p5bqp" path="res://systems/ui/hud/background.png" id="2_5j1kf"]
+[ext_resource type="Texture2D" uid="uid://dyp1hdxosupyu" path="res://systems/ui/hud/title.png" id="3_k3t45"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="4_6c8or"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="5_erwwm"]
+[ext_resource type="Texture2D" uid="uid://4t2kv0mw032w" path="res://systems/ui/hud/join_button.png" id="6_uq1rm"]
 
-[sub_resource type="GDScript" id="GDScript_fgkus"]
-script/source = "extends Control
+[sub_resource type="LabelSettings" id="LabelSettings_68yga"]
+font = ExtResource("5_erwwm")
+font_size = 60
 
-@export var main_game : PackedScene
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68yga"]
+draw_center = false
 
-func _on_host_pressed() -> void:
-	HighLevelNetworkHandler.start_server()
-	get_tree().change_scene_to_packed(main_game)
+[sub_resource type="LabelSettings" id="LabelSettings_nnsk1"]
+line_spacing = 0.0
+font_size = 131
 
+[node name="TitleScreen" type="CanvasLayer" unique_id=167105902]
+script = ExtResource("1_v6p8y")
 
-func _on_client_pressed() -> void:
-	HighLevelNetworkHandler.start_client()
-	get_tree().change_scene_to_packed(main_game)
-"
+[node name="Background" type="TextureRect" parent="." unique_id=669171026]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_5j1kf")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a2ex"]
+[node name="Title" type="TextureRect" parent="." unique_id=1763012457]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("3_k3t45")
 
-[sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
-font_size = 150
-
-[node name="Title_screen" type="Control" unique_id=1472138808]
+[node name="Interactables" type="Control" parent="." unique_id=595784691]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HostButton" type="TextureButton" parent="Interactables" unique_id=1787508012]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15364583
+anchor_top = 0.5777778
+anchor_right = 0.5046875
+anchor_bottom = 0.68333334
+offset_left = 288.85416
+offset_top = 600.8889
+offset_right = 948.8125
+offset_bottom = 710.6667
+texture_normal = ExtResource("4_6c8or")
+
+[node name="HostText" type="Label" parent="Interactables/HostButton" unique_id=448065670]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_fgkus")
-main_game = ExtResource("2_sa3yf")
+text = "HOST LOBBY"
+label_settings = SubResource("LabelSettings_68yga")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=1026246844]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1a2ex")
+[node name="JoinButton" type="TextureButton" parent="Interactables" unique_id=642849587]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 376.0
+offset_top = 788.0
+offset_right = 883.0
+offset_bottom = 967.0
+texture_normal = ExtResource("6_uq1rm")
 
-[node name="Title" type="Label" parent="Panel" unique_id=925576043]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.40078124
-anchor_top = 0.15555556
-anchor_right = 0.5992187
-anchor_bottom = 0.3494213
-grow_horizontal = 2
-grow_vertical = 2
-text = "TITLE"
-label_settings = SubResource("LabelSettings_fgkus")
-
-[node name="Host" type="Button" parent="Panel" unique_id=203539835]
+[node name="LobbyContainer" type="TextureButton" parent="Interactables" unique_id=783562189]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.46276042
-anchor_top = 0.45740741
-anchor_right = 0.5372396
-anchor_bottom = 0.5425926
-offset_left = 49.5
-offset_top = 30.5
-offset_right = -49.5
-offset_bottom = -30.5
+anchor_left = 0.15364583
+anchor_top = 0.69166666
+anchor_right = 0.5046875
+anchor_bottom = 0.7972222
+offset_left = 288.85416
+offset_top = 737.3333
+offset_right = 948.8125
+offset_bottom = 847.1111
+texture_normal = ExtResource("4_6c8or")
+
+[node name="LobbyID" type="LineEdit" parent="Interactables/LobbyContainer" unique_id=532644449]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10682493
+anchor_top = 0.14035088
+anchor_right = 0.89317507
+anchor_bottom = 0.8596491
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_selected_color = Color(1, 1, 1, 0)
+theme_override_colors/font_placeholder_color = Color(0.38170263, 0.38170347, 0.3817029, 0.6)
+theme_override_colors/selection_color = Color(0.5019608, 0.5019608, 0.5019608, 0)
+theme_override_fonts/font = ExtResource("5_erwwm")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_68yga")
+placeholder_text = "# ENTER LOBBY ID"
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1562136345]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 465.0
+offset_top = 210.0
+offset_right = -465.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1798189272]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=666882404]
+layout_mode = 2
+alignment = 1
+
+[node name="EnetMenu" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1131927169]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/EnetMenu" unique_id=142386828]
+layout_mode = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_nnsk1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Host" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/EnetMenu" unique_id=995669018]
+layout_mode = 2
 text = "Host"
 
-[node name="Client" type="Button" parent="Panel" unique_id=1313319599]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.45416668
-anchor_top = 0.5777778
-anchor_right = 0.54583335
-anchor_bottom = 0.662963
-offset_left = 16.5
-offset_right = -16.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 60
+[node name="Client" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/EnetMenu" unique_id=943525143]
+layout_mode = 2
 text = "Client"
 
-[connection signal="pressed" from="Panel/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="Panel/Client" to="." method="_on_client_pressed"]
+[node name="TextEdit" type="TextEdit" parent="PanelContainer/MarginContainer/HBoxContainer/EnetMenu" unique_id=1271042176]
+custom_minimum_size = Vector2(10, 40)
+layout_mode = 2
+placeholder_text = "Port"
+
+[node name="TubeMenu" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1442960118]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1173780452]
+layout_mode = 2
+text = "Furball Tactics"
+label_settings = SubResource("LabelSettings_nnsk1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SessionID" type="TextEdit" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1268798877]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 40)
+layout_mode = 2
+placeholder_text = "Lobby ID"
+
+[node name="JoinTube" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=799688603]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join Lobby"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1764793694]
+layout_mode = 2
+
+[node name="CreateTube" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/TubeMenu" unique_id=1158060192]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Create Lobby"
+
+[connection signal="pressed" from="Interactables/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="Interactables/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/TubeMenu/JoinTube" to="." method="_on_join_tube_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/HBoxContainer/TubeMenu/CreateTube" to="." method="_on_create_tube_pressed"]

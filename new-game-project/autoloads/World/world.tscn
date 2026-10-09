@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bj34rktmx0wv0" path="res://entities/environment/new/arenas/YarnBall/arena2.tscn" id="3_udajv"]
 [ext_resource type="PackedScene" uid="uid://cfv4rxkda6xi7" path="res://entities/environment/new/arenas/Tropical/arena3.tscn" id="4_n1x2a"]
 [ext_resource type="PackedScene" uid="uid://dvgjggr7vfo31" path="res://entities/environment/new/lobby/lobby.tscn" id="5_syl2k"]
-[ext_resource type="PackedScene" uid="uid://btg117njqy6w6" path="res://systems/title_screen.tscn" id="6_y8kkj"]
-[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/button_template.png" id="7_kj78w"]
+[ext_resource type="PackedScene" uid="uid://btg117njqy6w6" path="res://systems/ui/hud/title_screen.tscn" id="6_y8kkj"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="7_kj78w"]
 [ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="8_kj78w"]
 [ext_resource type="AudioStream" uid="uid://brvrr6ath1les" path="res://sound/catch22music-retro-80s-fusion-electronic-groove-full-354739.mp3" id="9_kj78w"]
 
@@ -72,9 +72,9 @@ far = 1000000.0
 unique_name_in_owner = true
 
 [node name="TitleScreen" parent="." unique_id=167105902 instance=ExtResource("6_y8kkj")]
-visible = false
 
 [node name="LobbyUI" type="CanvasLayer" parent="." unique_id=1542916873]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="LobbyUI" unique_id=715431878]
 anchors_preset = 7
@@ -116,6 +116,12 @@ vertical_alignment = 1
 
 [node name="Cursors" type="CanvasLayer" parent="." unique_id=38147938]
 layer = 3
+
+[node name="Mouse" type="Control" parent="Cursors" unique_id=1716636614]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2095964118]
 stream = ExtResource("9_kj78w")
