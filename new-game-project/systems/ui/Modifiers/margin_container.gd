@@ -52,7 +52,7 @@ var CardData = [
 		"decal" : preload("uid://duewe1uysb23u")
 	},
 	{
-		"name": "PHANTOM DASH",
+		"name": "PHANTOM DASH (WIP)",
 		"description": "Provides Intangibility for 5 seconds to obstacles",
 		"color": Color(0.813, 0.267, 0.771, 1.0),
 		"tier": "Epic",
@@ -61,7 +61,7 @@ var CardData = [
 		"decal" : preload("uid://b0pnw8xd413cv")
 	},
 	{
-		"name": "YARN SHIELD",
+		"name": "YARN SHIELD (WIP)",
 		"description": "Froms a defensive barrier around the player providing an extra life (One time use)",
 		"color": Color(1.0, 0.78, 0.231, 1.0),
 		"tier": "Legendary",

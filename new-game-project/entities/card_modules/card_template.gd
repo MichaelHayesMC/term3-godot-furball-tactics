@@ -13,7 +13,7 @@ var card_tier: String
 var card_emblem: Color # Will change to texture
 
 func _ready() -> void:
-	$Panel.hide()
+	$Outline.hide()
 
 func setup_card(id: int, data: Dictionary) -> void:
 	card_id = id
@@ -50,7 +50,7 @@ func effect_add():
 	pass
 
 func _on_mouse_entered() -> void:
-	$Panel.show()
+	$Outline.show()
 
 func _on_mouse_exited() -> void:
-	$Panel.hide()
+	$Outline.hide()

@@ -13,8 +13,6 @@ var players_spawned := false
 
 
 func _ready() -> void:
-	print("new level created")
-
 	# Reset state for this arena
 	players_loaded.clear()
 	players_spawned = false
@@ -72,8 +70,6 @@ func check_all_players_ready() -> void:
 
 		var spawn_position := chosen_spawn.global_position
 		var peer_id := player.get_multiplayer_authority()
-
-		print("Spawning player ", peer_id, " at ", spawn_position, "being ", chosen_spawn)
 
 		if peer_id == 1:
 			# Host
