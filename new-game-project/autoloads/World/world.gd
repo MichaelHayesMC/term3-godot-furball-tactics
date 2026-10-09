@@ -30,8 +30,6 @@ func level_pick():
 	if !multiplayer.is_server():
 		return
 
-	print("SERVER LEVELS: ", levels)
-
 	if levels.is_empty():
 		push_error("No levels have been assigned!")
 		return
@@ -48,21 +46,17 @@ func Level_change(chosen_level):
 	if not multiplayer.is_server():
 		return
 
-	print("SERVER CHOSE: ", chosen_level.resource_path)
 	level_sync.rpc(chosen_level.resource_path)
 
 @rpc("authority", "call_local", "reliable")
 func level_sync(level_path):
 	GameManager.can_shoot = true
-	print("LOADING LEVEL ON PEER: ", multiplayer.get_unique_id())
 
 	for child in $Platform.get_children():
 		child.queue_free()
 
 	var current_level = load(level_path).instantiate()
 	$Platform.add_child(current_level)
-
-	print("LEVEL LOADED: ", current_level)
 
 @rpc("call_local", "reliable")
 func HUD_display():

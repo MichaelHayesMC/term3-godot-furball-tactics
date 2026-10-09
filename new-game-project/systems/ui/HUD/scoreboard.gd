@@ -5,7 +5,6 @@ extends Control
 @onready var player_3: Label = $ScoreboardBackground/MarginContainer/VBoxContainer/Player3UI/Score
 @onready var player_4: Label = $ScoreboardBackground/MarginContainer/VBoxContainer/Player4UI/Score
 
-
 @onready var player_1ui: HBoxContainer = %Player1UI
 @onready var player_2ui: HBoxContainer = %Player2UI
 @onready var player_3ui: HBoxContainer = %Player3UI
@@ -15,6 +14,8 @@ var score_labels: Array[Label]
 
 
 func _ready() -> void:
+	print("SCOREBOARD READY on peer: ", multiplayer.get_unique_id())
+	
 	score_labels = [
 		player_1,
 		player_2,
@@ -40,31 +41,24 @@ func _ready() -> void:
 	connect_to_players()
 	update_all_scores()
 
-
 func connect_to_players() -> void:
 	for player in get_tree().get_nodes_in_group("players"):
 		if player is Player:
 			if !player.score_changed.is_connected(_on_player_score_changed):
 				player.score_changed.connect(_on_player_score_changed.bind(player))
 
-
 func update_all_scores() -> void:
 	for player in get_tree().get_nodes_in_group("players"):
 		if player is Player:
 			_on_player_score_changed(player.score, player)
 
-
 func _on_player_score_changed(new_score: int, player: Player) -> void:
-	var player_index := GameManager.players.find(player.name)
+	var player_index := GameManager.players.find(player.name.to_int())
 
-	if player_index == -1:
+	if player_index == -1 or player_index >= score_labels.size():
 		return
 
-	if player_index >= score_labels.size():
-		return
-	
-	label_update.rpc(player_index, new_score)
-
-@rpc("call_local")
-func label_update(player_index, new_score):
 	score_labels[player_index].text = str(new_score)
+	
+	if new_score == 2:
+		print(player, " Winner")

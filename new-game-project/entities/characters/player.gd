@@ -78,6 +78,7 @@ var player_list
 var score: int = 0:
 	set(value):
 		score = value
+		print("SCORE SET: ", name, "=", score)
 		score_changed.emit(score)
 
 func _enter_tree() -> void:
@@ -247,13 +248,8 @@ func add_point():
 		return
 		
 	score += 1
-	update_score.rpc(score)
 	
 	print("Player ", name, " got a point! Score: ", score)
-
-@rpc("authority", "call_remote", "reliable")
-func update_score(new_score: int):
-	score = new_score
 
 @rpc("any_peer", "call_local", "reliable")
 func shoot():
