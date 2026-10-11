@@ -18,3 +18,5 @@ These functions will allow my planning to become more organised and thought out 
 ## Functionality
 
 ## Test Cases
+
+## Flowcharts
