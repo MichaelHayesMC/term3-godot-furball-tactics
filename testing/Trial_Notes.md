@@ -46,18 +46,6 @@ Text
 
 >Text
 
-### 4️⃣ Stakeholder Four (Steven)
-
-* __Request(s)__
-
-Text
-
-* __Integration__
-
-<img src="(Image file)" alt="Integration - Stakeholder four" width="650"/>
-
->Text
-
 
 ## ⛓️ Sprint Two → Sprint Three
 
@@ -104,13 +92,3 @@ Text
 <img src="(Image file)" alt="Integration - Stakeholder three" width="650"/>
 
 >Text
-
-### 4️⃣ Stakeholder Four (Steven)
-
-* __Request(s)__
-
-Text
-
-* __Integration__
-
-<img src="(Image file)" alt="Integration - Stakeholder four" width="650"/>
