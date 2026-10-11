@@ -20,8 +20,13 @@ var ready_next_phase := false
 var minutes 
 var seconds
 
+var playerhaswon = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var playerhaswon = false
+	
+	get_tree().current_scene.player_elim.connect(elimination_proceed)
 	game_start()
 
 func game_start():
@@ -39,7 +44,6 @@ func game_start():
 	GameManager.game_start = false
 	game_state = "pre_game"
 	ready_next_phase = false
-	#print(pre_game_minutes)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -80,9 +84,18 @@ func _process(delta: float) -> void:
 		
 	timer_lb.text = (minutes_label + " : " + seconds_label)
 
+func elimination_proceed():
+	elimination_relay.rpc()
+
+@rpc("any_peer", "call_local")
+func elimination_relay():
+	minutes = 0
+	seconds = 0
+
 @rpc("any_peer", "call_local")
 func modifiers_proceed():
-	var modifiers_load = modifiers_hud.instantiate()
-	get_tree().current_scene.add_child(modifiers_load)
-	GameManager.players_moving = false
-	get_parent().queue_free()
+	if !playerhaswon:
+		var modifiers_load = modifiers_hud.instantiate()
+		get_tree().current_scene.add_child(modifiers_load)
+		GameManager.players_moving = false
+		get_parent().queue_free()

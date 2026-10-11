@@ -75,6 +75,8 @@ var health := 1
 
 var player_list
 
+var immobile := false
+
 var score: int = 0:
 	set(value):
 		score = value
@@ -88,13 +90,11 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	add_to_group("players")
 	%LabelSession.text = Network.tube_client.session_id
-	GameManager.players.append(name)
+	GameManager.players.append(name.to_int())
 	
 	## Will cause the game to break due to incorrect referencing being doubled between clients
 	if !is_multiplayer_authority():
 		return
-	
-	#GameManager.signal_session_info.connect(test)
 	
 	var bodyc = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
 	var eyec = Color(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
@@ -109,6 +109,9 @@ func test(new_info):
 
 func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():
+		return
+
+	if immobile:
 		return
 
 	set_color.rpc(player_color, body_color, eye_color)
@@ -211,6 +214,7 @@ func _process(delta):
 func set_moving(value: bool) -> void:
 	moving = value
 
+#################### Need to make the application an RPC to relay onto all clients
 func apply_card(card_data: Dictionary) -> void:
 	match card_data["name"]:
 		"ATK SPEED":
@@ -246,14 +250,24 @@ func kill_update():
 func add_point():
 	if !multiplayer.is_server():
 		return
-		
-	score += 1
+	
+	score_update.rpc(score + 1)
 	
 	print("Player ", name, " got a point! Score: ", score)
+	
+	GameManager.players_remaining -= 1
+
+@rpc("any_peer", "call_local", "reliable")
+func score_update(new_score : int):
+	#if !multiplayer.is_server():
+		#if multiplayer.get_remote_sender_id() != 1:
+			#return
+			
+	score = new_score
 
 @rpc("any_peer", "call_local", "reliable")
 func shoot():
-	if shooting and GameManager.can_shoot:
+	if shooting and GameManager.can_shoot and !immobile:
 		shooting = false
 
 		var bullet = Bullet.instantiate()

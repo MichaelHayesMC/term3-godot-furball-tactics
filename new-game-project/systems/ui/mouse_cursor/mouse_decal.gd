@@ -8,7 +8,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	if multiplayer.is_server():
-		var player_index = GameManager.players.find(name)
+		var player_index = GameManager.players.find(int(name))
 		colour_change.rpc(player_index)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -21,3 +21,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3748169, -13.6008415, 0.061
 use_collision = true
 size = Vector3(227, 0.06921387, 164)
 material = SubResource("StandardMaterial3D_ckt2i")
+
+[editable path="Lobby"]

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c3metd33t7f1m"]
+
+[ext_resource type="Script" uid="uid://cxayppl1abo8j" path="res://systems/ui/hud/win_scene.gd" id="1_fdysf"]
+[ext_resource type="Texture2D" uid="uid://b5mbcssqckayp" path="res://Host Lobby (8).png" id="2_42d08"]
+[ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="3_s73gk"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="4_ep8sh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdysf"]
+font = ExtResource("3_s73gk")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_42d08"]
+font = ExtResource("3_s73gk")
+font_size = 66
+
+[node name="WinScene" type="Control" unique_id=1677172301]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fdysf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1945688862]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_42d08")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1149130350]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -551.0
+offset_top = -116.5
+offset_right = 551.0
+offset_bottom = 116.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="WinLb" type="Label" parent="VBoxContainer" unique_id=627465355]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[PLAYER] IS THE WINNER"
+label_settings = SubResource("LabelSettings_fdysf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeaveButton" type="TextureButton" parent="VBoxContainer" unique_id=1729903897]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ep8sh")
+
+[node name="LeaveLb" type="Label" parent="VBoxContainer/LeaveButton" unique_id=384079260]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17804155
+anchor_top = 0.004386032
+anchor_right = 0.8219585
+anchor_bottom = 1.0131578
+text = "LEAVE LOBBY"
+label_settings = SubResource("LabelSettings_42d08")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/LeaveButton" to="." method="_on_leave_button_pressed"]

@@ -59,21 +59,36 @@ func add_player(peer_id):
 	
 	sync_player_list.rpc(players)
 
-func remove_player():
-	pass
+func remove_player(peer_id):
+	if peer_id == 1:
+		leave_server()
+		return
 
 @rpc("authority", "call_local", "reliable")
 func sync_player_list(new_player_list: Dictionary):
 	players = new_player_list.duplicate(true)
 	
 	player_list_updated.emit(players)
-	
-
-func clean_up_signals():
-	multiplayer.peer_connected.disconnect(add_player) 
-	#multiplayer.peer_disconnected.disconnect(remove_player)
-	multiplayer.connected_to_server.disconnect(on_connected_to_server)
 
 func _exit_tree() -> void:
 	if tube_enabled:
 		tube_client.leave_session()
+
+func clean_up_signals():
+	multiplayer.peer_connected.disconnect(add_player) 
+	multiplayer.peer_disconnected.disconnect(remove_player)
+	multiplayer.connected_to_server.disconnect(on_connected_to_server)
+
+func leave_server() -> void:
+	if tube_enabled:
+		tube_client.leave_session()
+	
+	multiplayer.multiplayer_peer.close()
+	multiplayer.multiplayer_peer = null
+	clean_up_signals()
+	
+	players.clear()
+	
+	player_list_updated.emit(players)
+	
+	get_tree().reload_current_scene()

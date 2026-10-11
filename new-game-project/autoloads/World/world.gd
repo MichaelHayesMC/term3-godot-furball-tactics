@@ -7,26 +7,47 @@ class_name World
 @onready var HUD = preload("res://systems/ui/HUD/hud.tscn")
 @export var levels : Array[PackedScene]
 
+@export var modifiers_hud : PackedScene
+
+signal player_elim
+
 func _ready() -> void:
+	set_process(false)
+	
+	GameManager.can_shoot = false
+	GameManager.players = []
+	GameManager.players_moving = true
+	GameManager.players_ready = 0
+	
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	Network.host_creation.connect(host_creation)
 	
 	$TitleScreen.show()
 	$LobbyUI.hide()
 	$Cursors.show()
 
+func _process(delta: float) -> void:
+	if len(GameManager.players) > 1 and GameManager.players_remaining <= 1:
+		player_elim.emit()
+
 func host_creation():
 	$LobbyUI.show()
 
 # Calls function to change scene with all player clients changing with it
 func _on_start_pressed() -> void:
+	set_process(true)
+	
 	if !multiplayer.is_server(): return
 	
 	if len(GameManager.players) >= 2: 
 		HUD_display.rpc()
 		level_pick()
 		
+	GameManager.players_remaining = len(GameManager.players)
 
 func level_pick():
+	GameManager.players_remaining = len(GameManager.players)
 	if !multiplayer.is_server():
 		return
 

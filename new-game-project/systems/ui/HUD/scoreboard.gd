@@ -10,8 +10,11 @@ extends Control
 @onready var player_3ui: HBoxContainer = %Player3UI
 @onready var player_4ui: HBoxContainer = %Player4UI
 
-var score_labels: Array[Label]
+@export var win_scene : PackedScene
 
+const WIN_SCENE = preload("uid://c3metd33t7f1m")
+
+var score_labels: Array[Label]
 
 func _ready() -> void:
 	print("SCOREBOARD READY on peer: ", multiplayer.get_unique_id())
@@ -53,12 +56,24 @@ func update_all_scores() -> void:
 			_on_player_score_changed(player.score, player)
 
 func _on_player_score_changed(new_score: int, player: Player) -> void:
+	print("PLAYER NAME: ", player.name)
+	print("PLAYERS ARRAY: ", GameManager.players)
+	print("PLAYER SEARCH: ", player.name.to_int())
+
 	var player_index := GameManager.players.find(player.name.to_int())
 
-	if player_index == -1 or player_index >= score_labels.size():
+	if player_index == -1:
+		return
+	
+	if player_index >= score_labels.size():
 		return
 
 	score_labels[player_index].text = str(new_score)
 	
+	print(player, new_score, "HI")
+	
 	if new_score == 2:
+		$"../TimerHUD".playerhaswon = true
 		print(player, " Winner")
+		var WIN_LOAD = WIN_SCENE.instantiate()
+		get_tree().current_scene.add_child(WIN_LOAD)

@@ -11,24 +11,45 @@
 [ext_resource type="Texture2D" uid="uid://lv8c8pr8ql1i" path="res://systems/ui/player_icons/pfp3.png" id="9_c0mec"]
 [ext_resource type="Texture2D" uid="uid://7un6wbab03ly" path="res://systems/ui/player_icons/pfp4.png" id="10_c0mec"]
 [ext_resource type="Script" uid="uid://dthe1ihliim5j" path="res://systems/ui/hud/scoreboard.gd" id="11_defla"]
-[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="12_u1k03"]
+[ext_resource type="Script" uid="uid://cxayppl1abo8j" path="res://systems/ui/hud/win_scene.gd" id="11_jxftc"]
+[ext_resource type="Texture2D" uid="uid://b5mbcssqckayp" path="res://Host Lobby (8).png" id="12_b3or8"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="13_heyoe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qfnet"]
 font = ExtResource("4_c0mec")
 font_size = 72
 font_color = Color(1, 1, 1, 0.78431374)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fdysf"]
+font = ExtResource("4_c0mec")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_42d08"]
+font = ExtResource("4_c0mec")
+font_size = 66
+
+[sub_resource type="PackedScene" id="PackedScene_b25sa"]
+_bundled = {
+"conn_count": 1,
+"conns": PackedInt32Array(1073741830, 1073741829, 62, 61, 2, 0, 0),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("WinScene", "Control", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "script", "TextureRect", "TextureRect", "layout_mode", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "texture", "VBoxContainer", "VBoxContainer", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "grow_horizontal", "grow_vertical", "alignment", "WinLb", "Label", "unique_name_in_owner", "layout_mode", "text", "label_settings", "horizontal_alignment", "vertical_alignment", "LeaveButton", "TextureButton", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "texture_normal", "LeaveLb", "Label", "unique_name_in_owner", "layout_mode", "anchors_preset", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "text", "label_settings", "horizontal_alignment", "vertical_alignment", "metadata/_edit_use_anchors_", "_on_leave_button_pressed", "pressed"),
+"node_count": 6,
+"node_ids": PackedInt32Array(1328923679, 1084659959, 1518926038, 1958803855, 1328269364, 42802934),
+"node_paths": [NodePath("."), NodePath("."), NodePath("./VBoxContainer"), NodePath("./VBoxContainer"), NodePath("./VBoxContainer/LeaveButton"), NodePath("."), NodePath("VBoxContainer/LeaveButton")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 0, 1073741824, 0, 10, 9, -1, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 11, 16, 12, 17, 13, 0, 1073741825, 0, 19, 18, -1, 13, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 25, 19, 26, 20, 27, 21, 28, 22, 29, 23, 30, 24, 31, 25, 32, 26, 0, 1073741826, 0, 34, 33, -1, 6, 35, 27, 36, 28, 37, 29, 38, 30, 39, 31, 40, 32, 0, 1073741827, 0, 42, 41, -1, 4, 43, 33, 44, 34, 45, 35, 46, 36, 0, 1073741828, 0, 48, 47, -1, 12, 49, 37, 50, 38, 51, 39, 52, 40, 53, 41, 54, 42, 55, 43, 56, 44, 57, 45, 58, 46, 59, 47, 60, 48, 0),
+"variants": [3, 15, 1.0, 1.0, 2, 2, ExtResource("11_jxftc"), 1, 15, 1.0, 1.0, 2, 2, ExtResource("12_b3or8"), 1, 8, 0.5, 0.5, 0.5, 0.5, -551.0, -116.5, 551.0, 116.5, 2, 2, 2, true, 2, "[PLAYER] IS THE WINNER", SubResource("LabelSettings_fdysf"), 1, 1, 2, 4, 4, ExtResource("13_heyoe"), true, 1, -1, 0.17804155, 0.004386032, 0.8219585, 1.0131578, "LEAVE LOBBY", SubResource("LabelSettings_42d08"), 1, 1, true],
+"version": 3
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_i7141"]
 font = ExtResource("4_c0mec")
 font_size = 48
 font_color = Color(1, 1, 1, 0.78431374)
 
-[sub_resource type="LabelSettings" id="LabelSettings_68yga"]
-font = ExtResource("4_c0mec")
-font_size = 100
-
 [node name="HUD" type="CanvasLayer" unique_id=1678199065]
-layer = 0
+layer = -1
 
 [node name="TimerHUD" type="TextureRect" parent="." unique_id=1158385346 node_paths=PackedStringArray("timer_lb")]
 self_modulate = Color(1, 1, 1, 0.78431374)
@@ -106,6 +127,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_defla")
+win_scene = SubResource("PackedScene_b25sa")
 
 [node name="ScoreboardBackground" type="TextureRect" parent="Scoreboard" unique_id=1249536680]
 self_modulate = Color(1, 1, 1, 0.78431374)
@@ -197,39 +219,3 @@ label_settings = SubResource("LabelSettings_i7141")
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_i7141")
-
-[node name="WinnerUI" type="Control" parent="." unique_id=88928660]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="WinnerUI" unique_id=685104373]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -551.0
-offset_top = -116.5
-offset_right = 551.0
-offset_bottom = 116.5
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 2
-
-[node name="WinLb" type="Label" parent="WinnerUI/VBoxContainer" unique_id=1350426929]
-layout_mode = 2
-text = "[PLAYER] IS THE WINNER"
-label_settings = SubResource("LabelSettings_68yga")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="WinLb2" type="TextureButton" parent="WinnerUI/VBoxContainer" unique_id=1976541064]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("12_u1k03")

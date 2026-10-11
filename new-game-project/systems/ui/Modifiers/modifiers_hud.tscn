@@ -27,6 +27,7 @@ bg_color = Color(0, 0, 0, 0.3019608)
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hfdmc"]
 
 [node name="Modifiers_Hud" type="Control" unique_id=800153155]
+z_index = -2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
