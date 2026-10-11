@@ -63,8 +63,6 @@ texture = ExtResource("1_c0mec")
 expand_mode = 1
 script = ExtResource("2_u1k03")
 timer_lb = NodePath("TimerLb")
-default_in_game_minutes = 0
-default_in_game_seconds = 30
 modifiers_hud = ExtResource("3_c0mec")
 
 [node name="TimerLb" type="Label" parent="TimerHUD" unique_id=1072311897]

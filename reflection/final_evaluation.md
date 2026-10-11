@@ -19,6 +19,10 @@ In regards to trialling, I had managed to get a somewhat sufficient amount of fe
 
 ## 🙃 What didn’t go as planned?
 
+### Time Management (Project Overestimation)
+
+Did not anticipate the difficulties that came with mutliplayer regarding Godot Engine
+
 ### Change in Plans!!!
 
 Over the course of my programming, I have decided to change my final design and planning. I have realised that I have overestimated my ability to make certain functions for my task manager and ultimately find it to be a waste of my time for such a little feature that will only serve a close to useless purpose. This feature was supposed to sort the user's tasks based on the appropriate subheading that followed and vice versa in terms of order. Ultimately I cannot comprehend how to make this function and would like to subside it for I believe it to be unnecessary and unnoticeable for the user's usability.
