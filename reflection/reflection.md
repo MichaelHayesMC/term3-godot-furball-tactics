@@ -1,13 +1,13 @@
 # 🪞 Reflection
 
-__🏁 Finished Task Manager__  
-<img src="../assets\markdown-images\Reflection_Images\Final_Programme.png" alt="Sprint 3 Outcome" width="650"/>
+__🏁 Finished Digital Outcome__  
+<img src="../testing/sprint_3_photos/gameplay_footage/images/title_screen.png" alt="Sprint 3 Outcome" width="650"/>
 
 ## 🗺️ Planning
 
 ### Trello
 
-<img src="../assets\markdown-images\Reflection_Images\Trello_Dashboard.png" width="650"/>
+<img src="../assets/markdown_images/trello_records/sprint2_trello_record.png" width="650"/>
 
 Throughout my program I had used a Kanban Board called Trello. This handy tool allowed me to organise and manage the things that I needed to get done for this project in a more visual manner. This had provided a variety of functions that I had used to my advantage:
 
@@ -21,15 +21,15 @@ These features furthermore allowed me to stay organised and know exactly what wa
 
 ### Drawio files
 
-<img src="../assets\markdown-images\Reflection_Images\Drawio_Exemplar.png" width="650"/>
+<img src="../planning/drawio_flowcharts/sprint3/sprint3_flowchart.png" width="650"/>
 
 In my planning stages I needed a way to visualise what my project would look like. I used this inbuilt plugin from visual studio called __.drawio__ to visualise the design of my drafts and final iteration for my project. This had features such as already made templates according to the modern OS of most computers for different applications. Without this plugin, it would have been very difficult to understand and comprehend what my project was going to look like and reference for what my code needed to be in order to represent my final desired project.
 
 ## 🧪 Testing
 
-<img src="../assets\markdown-images\Reflection_Images\Test_Case_Template.png" alt="Test Case Template" width="650"/>
+<img src="../assets/markdown_images/images/sprint3_testcases_image.png" alt="Test Case Template" width="650"/>
 
-<img src="../assets\markdown-images\Reflection_Images\Correction_Template.png" alt="Correction Template" width="650"/>
+<img src="../assets/markdown_images/images/sprint3_corrections_image.png" alt="Correction Template" width="650"/>
 
 When it came to testing my program many, many times for different bugs that could affect the user experience, I used google spreadsheets to help manage these tests. I had recorded a multitude of test cases via the use of this spreadsheet to show how how I tested a certain input and if I received any errors for me to then fix them.
 
