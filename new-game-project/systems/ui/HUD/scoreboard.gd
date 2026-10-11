@@ -16,7 +16,7 @@ const WIN_SCENE = preload("uid://c3metd33t7f1m")
 
 var score_labels: Array[Label]
 
-var score_requirement := 2
+var score_requirement := 20
 
 func _ready() -> void:
 	print("SCOREBOARD READY on peer: ", multiplayer.get_unique_id())
