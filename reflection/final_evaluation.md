@@ -1,17 +1,17 @@
 # ⚖️ Final Evaluation
 
-__🏁 Finished Task Manager__  
-<img src="../assets\markdown-images\Reflection_Images\Final_Programme.png" alt="Sprint 3 Outcome" width="650"/>
+__🏁 Finished Digital Outcome__  
+<img src="../testing/sprint_3_photos/gameplay_footage/images/title_screen.png" alt="Sprint 3 Outcome" width="650"/>
 
 ## 🫡 What went well?
 
 ### Planning
 
-I was glad that I was able to meet the main criteria/planning that I had set for myself at the beginning of this project. I wanted to make a task manager project that the user could use to input their task requirements and receive an output to read what they wanted to do for a later time. My program is able to record the information of the user to a set degree that does not ask for private information and allows the user to manage themselves with the things they need to do.
+I was glad that I was able to meet the main criteria/planning that I had set for myself at the beginning of this project. I wanted to make a competitive game that included a gameloop over a shared p2p network lobby mutliplayer system. My final digital outcome is able to meet the expectation of allowing players to host and join lobbys as well as play up to a lobby of four players that proceed in a multitude of games until a player has become the victor of 20 eliminations.
 
 ### Test Cases / GitHub Commits
 
-Through the use of google spreadsheets and GitHub Commits, I was able to record the progress and issues that I had faced along my journey of my task manager development. I was able to record what had gone well with my task manager interface and what needed improving to allow a more functioning and usable interface. I had thoroughly tested for weeks, finally concluding a bug free programme for my end users to use for daily life task management.
+Through the use of google spreadsheets and GitHub Commits, I was able to record the progress and issues that I had faced along my journey of my digital outcome. I was able to record what had gone well with my digital outcome and what needed improving to allow a more functioning and usable interface. I had thoroughly tested for weeks, finally concluding a bug free programme for my end users to use for daily life task management.
 
 ### Trialling
 
@@ -19,13 +19,15 @@ In regards to trialling, I had managed to get a somewhat sufficient amount of fe
 
 ## 🙃 What didn’t go as planned?
 
-### Time Management (Project Overestimation)
+### Feature Abscences + Time Management (Project Overestimation)
 
-Did not anticipate the difficulties that came with mutliplayer regarding Godot Engine
+One aspect that did not go as planned during this development process was the inability to add particle effects and sound effects. Due to time constraints around my game, I was unable to add luxury dependent features that were more for aesthetics as opposed to functionality and neccessity. Therefore some of the intended desired features that are mentioned in my Kanban Board had to be excluded due to this time constraint.
 
-### Change in Plans!!!
+### Multiplayer Disarrangement
 
-Over the course of my programming, I have decided to change my final design and planning. I have realised that I have overestimated my ability to make certain functions for my task manager and ultimately find it to be a waste of my time for such a little feature that will only serve a close to useless purpose. This feature was supposed to sort the user's tasks based on the appropriate subheading that followed and vice versa in terms of order. Ultimately I cannot comprehend how to make this function and would like to subside it for I believe it to be unnecessary and unnoticeable for the user's usability.
+Another aspect that did not go as planned during the development process was the unintended consequences of choosing a network based multiplayer final digial outcome. As demonstrated during my investigation in the sprint 2 and 3 phase of my final digital outcome, I had noticed there were some complications regarding a network based peer to peer based mutliplayer system. During testing I had multiple difficulties deciding a networking pluign that would be used to port forward multiplayer abilities. I had used 4 different plugins over the course of my testing and only one eventually worked. The downside with this investigation was the amount of time that it eventually ended up taking therefore wasting further potential that could have been invested into my final digital outcome. 
+
+However even though I managed to find a working network system for my current game, it was proven to be quite unstable. This is because during the exportation phase of my final digital media, I had occured an abundance of bugs that did not show during the editing phase of my game. Therefore due to the minimal amount of time, underreestimation of multiplayer complexity and lack of agency to choose a working network port forwarding system without the need of an external server ultimately left me quick hopeless in terms of ability to make a completed (exported) final digital outcome.
 
 ## 🎓 What would you do differently next time?
 
@@ -43,4 +45,4 @@ I would also limit myself to a much less steeper incline of workload and the ide
 
 ### Reliable Stakeholders
 
-I would also choose a more reliable sample of stakeholders for my game project. This is because most of the feedback given by my stakeholders seemed to lack any constructive criticism for me to be able to improve my program to a much larger degree. This would further align more with the preference of the users that would use my program on a day to day basis and give me a better idea of what my audience would want out of my task manager as a whole.
+I would also choose a more reliable sample of stakeholders for my game project. This is because most of the feedback given by my stakeholders seemed to lack any constructive criticism for me to be able to improve my program to a much larger degree. This would further align more with the preference of the users that would use my program on a day to day basis and give me a better idea of what my audience would want out of my task manager as a whole. There was also the downside that some of my stakeholders did not have the foreseen responsibility to provide feedback therefore some information is missing.
