@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://di121otsvx1yl"
 path.s3tc="res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.s3tc.ctex"
+path.etc2="res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://entities/environment/new/Background.jpg"
-dest_files=["res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.s3tc.ctex", "res://.godot/imported/Background.jpg-f16ebbe038ae0fea3a186100eab3113f.etc2.ctex"]
 
 [params]
 

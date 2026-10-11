@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5mbcssqckayp"
 path.s3tc="res://.godot/imported/Host Lobby (8).png-899e732ccb764032a00f3e05f9618555.s3tc.ctex"
+path.etc2="res://.godot/imported/Host Lobby (8).png-899e732ccb764032a00f3e05f9618555.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Host Lobby (8).png"
-dest_files=["res://.godot/imported/Host Lobby (8).png-899e732ccb764032a00f3e05f9618555.s3tc.ctex"]
+dest_files=["res://.godot/imported/Host Lobby (8).png-899e732ccb764032a00f3e05f9618555.s3tc.ctex", "res://.godot/imported/Host Lobby (8).png-899e732ccb764032a00f3e05f9618555.etc2.ctex"]
 
 [params]
 
