@@ -16,6 +16,8 @@ const WIN_SCENE = preload("uid://c3metd33t7f1m")
 
 var score_labels: Array[Label]
 
+var score_requirement := 20
+
 func _ready() -> void:
 	print("SCOREBOARD READY on peer: ", multiplayer.get_unique_id())
 	
@@ -72,7 +74,7 @@ func _on_player_score_changed(new_score: int, player: Player) -> void:
 	
 	print(player, new_score, "HI")
 	
-	if new_score == 2:
+	if new_score == score_requirement:
 		$"../TimerHUD".playerhaswon = true
 		print(player, " Winner")
 		var WIN_LOAD = WIN_SCENE.instantiate()

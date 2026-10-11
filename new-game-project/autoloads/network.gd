@@ -60,9 +60,11 @@ func add_player(peer_id):
 	sync_player_list.rpc(players)
 
 func remove_player(peer_id):
-	if peer_id == 1:
-		leave_server()
-		return
+	#if peer_id == 1:
+		#leave_server()
+		#return
+	
+	leave_server()
 
 @rpc("authority", "call_local", "reliable")
 func sync_player_list(new_player_list: Dictionary):
@@ -80,15 +82,27 @@ func clean_up_signals():
 	multiplayer.connected_to_server.disconnect(on_connected_to_server)
 
 func leave_server() -> void:
+	print("Terminating lobby...")
+
+	# Notify all remaining clients before closing connections.
+	if multiplayer.is_server():
+		shutdown_lobby.rpc()
+
+	_close_local_session()
+
+@rpc("authority", "call_local", "reliable")
+func shutdown_lobby() -> void:
+	_close_local_session()
+
+func _close_local_session() -> void:
 	if tube_enabled:
 		tube_client.leave_session()
-	
-	multiplayer.multiplayer_peer.close()
-	multiplayer.multiplayer_peer = null
-	clean_up_signals()
-	
+
+	if multiplayer.multiplayer_peer:
+		multiplayer.multiplayer_peer.close()
+		multiplayer.multiplayer_peer = null
+
 	players.clear()
-	
 	player_list_updated.emit(players)
-	
+
 	get_tree().reload_current_scene()
