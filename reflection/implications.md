@@ -48,23 +48,20 @@ My program fulfills the initial main purpose that I had stated at the beginning 
 
 In order to meet these specific needs I have implemented the use of title pages, arenas, player models, weapons, player modifiers and other assortment of resources that provided necessary to meet the expectations of my end users.
 
-__Entry Widget__ - Prompt the user for a task label/description
+__Labels__  
+Title - Prompt the user for a task label/description
 
 __Buttons__  
-Add Task - _Creates a task based on the given information when all properties have an input_  
-Remove Task - _Removes the selected task by the user in treeview table_  
-Select Modify - _Fills the properties widgets with the information based on the treeview table task_  
-Modify Selected - _Confirms the changes made if any are made by the user into the task treeview table_  
+Host Lobby - _Creates a new lobby under the tube client plugin_
+Join Lobby - _Joins a lobby given off the line Edit "Lobby ID Session"_
+Start Game - _Begins the game when atleast 2 players are loaded in the lobby_
+Leave Lobby - _Players will leave the lobby_
 
-__Comboboxes__  
-Date Due - _Prompts the user for day/month/year of the due date by user_  
-Priority - _The urgency of the task with the following (Low, Medium, High)_  
-Status - _How the user is dealing with the task (To Do, Doing, Done)_  
-
-My program officially provides the user with all the requirements they would need to create and organise tasks that they need to do when they need to do it.
+__Line Edit__  
+Lobby ID Session - _Insert for a string of numbers that the host of the lobby possess to join the hosted server_
 
 ## 4️⃣ Usability
 
 __Is it easy to use?__
 
-I have ensured that my program makes it easy for new users to understand the basic functionality of my program with little to no problems to arise. I have ensured that the names on the buttons like "Add" fulfills the purpose of letting the user know that it is meant to add a task into the display based on the inputs that they have given. I have also incorporated error messages when something does go wrong so the user will be able to learn from their mistake and know what they were meant to write instead of an invalid input.
+I have ensured that my program makes it easy for new users to understand the basic functionality of my program with little to no problems to arise. I have ensured that the names on the buttons like "Host Lobby" fulfills the purpose of letting the user know that it is meant to create a new lobby for the current player. I have also ensured that most labels are easy to understand regarding common sense and therefore players should be able to know how to play my game considering my selected audience.
