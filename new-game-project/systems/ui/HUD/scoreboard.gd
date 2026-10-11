@@ -39,7 +39,6 @@ func _ready() -> void:
 		player_3ui.hide()
 		player_4ui.hide()
 		
-
 	# Wait one frame so networked players have time to spawn.
 	await get_tree().process_frame
 

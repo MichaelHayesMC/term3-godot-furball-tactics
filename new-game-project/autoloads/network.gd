@@ -1,9 +1,8 @@
 extends Node
 
-@onready var world = get_tree().current_scene
-
-@onready var HUD = preload("res://systems/ui/HUD/hud.tscn")
 @export var levels : Array[PackedScene]
+
+const HUD = preload("res://systems/ui/HUD/hud.tscn")
 
 #signal player_colour
 const PLAYER = preload("res://entities/characters/player.tscn")
@@ -13,9 +12,8 @@ var enet_peer = ENetMultiplayerPeer.new()
 var tube_client := TubeClient.new()
 var tube_enabled = true
 
-const PORT = 9999
 const TUBE_CONTEXT = preload("uid://bjcuq8aag84wf")
-var ip_test = "localhost"
+var IP_ADDRESS = "localhost"
 
 var players: Dictionary = {}
 signal player_list_updated(player_list)
@@ -32,7 +30,7 @@ func tube_create():
 	multiplayer.peer_disconnected.connect(remove_player)
 	tube_client.create_session()
 	add_player(1)
-	host_creation.emit()
+#	host_creation.emit()
 
 func tube_join(session_id: String):
 	multiplayer.peer_connected.connect(add_player)
@@ -44,7 +42,7 @@ func on_connected_to_server():
 	add_player(multiplayer.get_unique_id())
 
 func add_player(peer_id):
-	if !multiplayer.is_server() and multiplayer.multiplayer_peer is ENetMultiplayerPeer:
+	if peer_id == 1 and multiplayer.multiplayer_peer is ENetMultiplayerPeer:
 		return
 
 	players[peer_id] = true
