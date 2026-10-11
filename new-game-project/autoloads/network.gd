@@ -30,7 +30,7 @@ func tube_create():
 	multiplayer.peer_disconnected.connect(remove_player)
 	tube_client.create_session()
 	add_player(1)
-#	host_creation.emit()
+	host_creation.emit()
 
 func tube_join(session_id: String):
 	multiplayer.peer_connected.connect(add_player)
