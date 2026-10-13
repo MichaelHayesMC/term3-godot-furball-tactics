@@ -68,27 +68,27 @@ Over the course of my trialling with my stakeholders for my sprint two design, I
 
 * __Request(s)__
 
-Upgrades did not have a significant affect - fixed by making the modifiers much more impactful
+One of the new requests for the third sprint of my game development for my stakeholders was regarding the modifiers phase of my game. They had noticed that the Upgrades did not have a significant affect because they were not heavily noticeable. Therefore I had fixed this request by making modifiers much more impactful. What I mean by this is that I ensured that the percentage that the values were more impactful on the game's influence for player gameplay while also ensuring that it was balanced at the same time.
 
-Players spawn after only 2 rounds bug - Fixed through testing only to find out minima changes were needed
+Another request that was made regarding my first stakeholder was that they noticed that players spawn after only 2 rounds bug. Therefore when developing the third and final iteration of my program I tried to replicate this same problem. However when testing this issue I had was unable to successfully replicate this issue. Ultimately I had suspected that the root of the issue was how the players had tested the unstable multiplayer system. Due to being a unfinished and relatively unstable iteration of Godot p2p networking, I suspected that this issue occured only becuase the interfaces were under the influence of a unstabel VPN network due to the school's firewall and networking restrictions of UDP networking. Therefore I was unable to replicate this issue.
 
 * __Integration__
 
-<img src="(image_file)" alt="Integration - Stakeholder one" width="650"/>
+<img src="../assets/markdown_images/trial_notes/modifiers_page.png" alt="Integration - Stakeholder one" width="650"/>
 
->Text
+> As shown above I was able to incorporate the requested modifications by changing the values of certain abilities to be 50% or 70% which ultimately had more impact on the gameplay.
 
 ### 2️⃣ Stakeholder Two (Astyn)
 
 * __Request(s)__
 
-Working modifiers - Incorporated ability sync across clients
+I had fixed this bug by simply ensuring that the RPC relay of networked conditions were synced across all clients due to some clients not recieving the same information that values had changed across clients.
 
 * __Integration__
 
-<img src="(Image file)" alt="Integration - Stakeholder two" width="650"/>
+<img src="../assets/markdown_images/trial_notes/modifiers_page.png" alt="Integration - Stakeholder two" width="650"/>
 
->Text
+> Shown through sprint 3 video gameplay I had ensured that the player's modifiers were synced across all clients using RPC annotations and MultiplayerSyncronisation Nodes built into by Godot.
 
 ### 3️⃣ Stakeholder Three (Zane)
 
