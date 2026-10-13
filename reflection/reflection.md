@@ -5,7 +5,7 @@ __🏁 Finished Digital Outcome__
 
 ## 🗺️ Planning
 
-### Trello
+### Trello Kanban Board
 
 <img src="../assets/markdown_images/trello_records/sprint2_trello_record.png" width="650"/>
 
@@ -57,3 +57,7 @@ When it came to testing my program many, many times for different bugs that coul
 In order to perform my trialling, I had gathered five stakeholders to give me feedback. The feedback would be collected via google forms in order to ask my stakeholders questions and test the program at its current iteration. I would analyse this feedback and choose the feedback that I deemed fit and appropriate for my program to meet the expectations and qualifications for my end-users.
 
 I had given the image of my current iteration of my program followed by some feedback and rating questions. This ultimately gave me the criticism I needed to progress in my program for my end-user's needs. This will furthermore make my program well-suited for the end-users.
+
+## How each aspect shaped one another
+
+In summary each aspect of revolutionary stakeholder feedback, test cases and inital planning proved pivotal and interchanging to provide a completed final outcome. Drawio files influenced by stakeholders had shaped what the programme looks like today. One game aspect of PVP -> PVE can be seen evolving throughout this progressive journey. Stakeholder feedback and personal testing allowed for both a personal and external method of critical thinking/criticism on what would be necessary to fufill the outcome of my project since test cases influenced how the game would run and therefore would influence how the stakeholders would feel towards my design choices since this would influence how my planning for future sprints would act. Therefore in conclusion, I believe that I have synthesised through the exemplification of my evolutionary programme that through the use of all these tools, the final outcome has truely become what I expected from it and maybe even beyond for end users to appreciate.
