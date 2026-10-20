@@ -21,7 +21,7 @@ These features furthermore allowed me to stay organised and know exactly what wa
 
 ### Drawio files
 
-<img src="../planning/drawio_flowcharts/sprint3/sprint3_flowchart.png" width="650"/>
+<img src="../planning\drawio_flowcharts\sprint3\sprint3_flowchart.png" width="650"/>
 
 In my planning stages I needed a way to visualise what my project would look like. I used this inbuilt plugin from visual studio called __.drawio__ to visualise the design of my drafts and final iteration for my project. This had features such as already made templates according to the modern OS of most computers for different applications. Without this plugin, it would have been very difficult to understand and comprehend what my project was going to look like and reference for what my code needed to be in order to represent my final desired project.
 
