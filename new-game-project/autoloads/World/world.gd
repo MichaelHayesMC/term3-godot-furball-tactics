@@ -4,7 +4,7 @@ class_name World
 @onready var world = get_tree().current_scene
 
 @onready var title_screen: CanvasLayer = $TitleScreen
-@onready var HUD = preload("res://systems/ui/HUD/hud.tscn")
+@onready var HUD = preload("uid://eo30kruldshw")
 @export var levels : Array[PackedScene]
 
 @export var modifiers_hud : PackedScene

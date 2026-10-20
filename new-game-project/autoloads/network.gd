@@ -2,11 +2,11 @@ extends Node
 
 @export var levels : Array[PackedScene]
 
-const HUD = preload("res://systems/ui/HUD/hud.tscn")
+const HUD = preload("uid://eo30kruldshw")
 
 #signal player_colour
-const PLAYER = preload("res://entities/characters/player.tscn")
-const MOUSE = preload("res://systems/ui/mouse_cursor/mouse_decal.tscn")
+const PLAYER = preload("uid://ddc8k6gybq8ur")
+const MOUSE = preload("uid://cluva5choy51f")
 
 var enet_peer = ENetMultiplayerPeer.new()
 var tube_client := TubeClient.new()

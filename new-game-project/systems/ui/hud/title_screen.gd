@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@onready var session_id: TextEdit = %SessionID
-
 func _ready() -> void:
 	Network.tube_client.error_raised.connect(on_error_raised)
 	
