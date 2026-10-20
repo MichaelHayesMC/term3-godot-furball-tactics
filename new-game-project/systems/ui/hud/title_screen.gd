@@ -22,5 +22,5 @@ func joinable():
 	hide()
 
 func on_error_raised(_code, _message):
-	%JoinTube.disabled
+	#%JoinTube.disabled
 	Network.clean_up_signals()

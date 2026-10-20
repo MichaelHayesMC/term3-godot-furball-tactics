@@ -5,6 +5,14 @@ extends MarginContainer
 var current_player: Player
 var players_loaded := {}
 
+const BIGGER_BULLETS_CARD = preload("res://entities/card_modules/card_decals/Bigger_Bullets_Card.png")
+const CAT_DASH___CARD = preload("res://entities/card_modules/card_decals/Cat_Dash_+_Card.png")
+const CAT_DASH_CARD = preload("res://entities/card_modules/card_decals/Cat_Dash_Card.png")
+const PHANTOM_DASH_CARD = preload("res://entities/card_modules/card_decals/Phantom_Dash_Card.png")
+const SPEEDY_SHOTS___CARD = preload("res://entities/card_modules/card_decals/Speedy_Shots_+_Card.png")
+const SPEEDY_SHOTS_CARD = preload("res://entities/card_modules/card_decals/Speedy_Shots_Card.png")
+const YARN_SHIELD_CARD = preload("res://entities/card_modules/card_decals/Yarn_Shield_Card.png")
+
 var CardData = [
 	{
 		"name": "ATK SPEED",
@@ -13,7 +21,7 @@ var CardData = [
 		"tier": "Common",
 		"emblem_texture": Color(1.0, 0.0, 0.0, 1.0), # Will change to a texture
 		"value" : 0.05,
-		"decal" : preload("uid://dlibjiki5mxgt")
+		"decal" : SPEEDY_SHOTS_CARD
 	},
 	{
 		"name": "ATK SPEED +",
@@ -22,7 +30,7 @@ var CardData = [
 		"tier": "Uncommon",
 		"emblem_texture": Color(1.0, 0.0, 0.0, 1.0), # Will change to a texture
 		"value" : 0.2,
-		"decal" : preload("uid://c0tjf7gyu0l4d")
+		"decal" : SPEEDY_SHOTS___CARD
 	},
 	{
 		"name": "MOVE SPEED",
@@ -31,7 +39,7 @@ var CardData = [
 		"tier": "Common",
 		"emblem_texture": Color(0.0, 0.589, 0.752, 1.0), # Will change to a texture
 		"value" : 0.05,
-		"decal" : preload("uid://bha8fihem71wq")
+		"decal" : CAT_DASH_CARD
 	},
 	{
 		"name": "MOVE SPEED +",
@@ -40,7 +48,7 @@ var CardData = [
 		"tier": "Uncommon",
 		"emblem_texture": Color(0.0, 0.589, 0.752, 1.0), # Will change to a texture
 		"value" : 0.2,
-		"decal" : preload("uid://fcjgv23ybdqb")
+		"decal" : CAT_DASH___CARD
 	},
 	{
 		"name": "BIGGER BULLETS",
@@ -49,7 +57,7 @@ var CardData = [
 		"tier": "Uncommon",
 		"emblem_texture": Color(0.0, 0.589, 0.752, 1.0), # Will change to a texture
 		"value" : 0.5,
-		"decal" : preload("uid://duewe1uysb23u")
+		"decal" : BIGGER_BULLETS_CARD
 	},
 	{
 		"name": "PHANTOM DASH (WIP)",
@@ -58,7 +66,7 @@ var CardData = [
 		"tier": "Epic",
 		"emblem_texture": Color(1.0, 1.0, 1.0, 1.0), # Will change to a texture
 		"value" : null,
-		"decal" : preload("uid://b0pnw8xd413cv")
+		"decal" : PHANTOM_DASH_CARD
 	},
 	{
 		"name": "YARN SHIELD (WIP)",
@@ -67,7 +75,7 @@ var CardData = [
 		"tier": "Legendary",
 		"emblem_texture": Color(0.375, 0.001, 0.488, 1.0), # Will change to a texture
 		"value" : null,
-		"decal" : preload("uid://cvtcnk8twh82x")
+		"decal" : YARN_SHIELD_CARD
 	}
 ]
 

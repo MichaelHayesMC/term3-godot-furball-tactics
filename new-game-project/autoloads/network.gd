@@ -49,7 +49,7 @@ func add_player(peer_id):
 
 	var player = PLAYER.instantiate()
 	player.name = str(peer_id)
-	get_tree().current_scene.add_child(player)
+	get_tree().current_scene.add_child(player, true)
 	
 	var mouse = MOUSE.instantiate()
 	mouse.name = str(peer_id)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhobt5prlv6lq"]
 
+[ext_resource type="Texture2D" uid="uid://bmva368k7gcdu" path="res://entities/card_modules/card_decals/Template_Card.png" id="1_8ign3"]
 [ext_resource type="Script" uid="uid://dwb0syom25324" path="res://entities/card_modules/card_template.gd" id="1_y1fi3"]
-[ext_resource type="Texture2D" uid="uid://duewe1uysb23u" path="res://entities/card_modules/card_decals/Bigger_Bullets_Card.png" id="2_8ign3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68yga"]
 bg_color = Color(1, 1, 1, 1)
@@ -24,7 +24,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 0
 mouse_behavior_recursive = 2
-texture = ExtResource("2_8ign3")
+texture = ExtResource("1_8ign3")
 expand_mode = 1
 script = ExtResource("1_y1fi3")
 metadata/_edit_use_anchors_ = true
