@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c3metd33t7f1m"]
 
-[ext_resource type="Script" uid="uid://cxayppl1abo8j" path="res://systems/ui/hud/win_scene.gd" id="1_fdysf"]
-[ext_resource type="Texture2D" uid="uid://b5mbcssqckayp" path="res://Host Lobby (8).png" id="2_42d08"]
+[ext_resource type="Script" uid="uid://cxayppl1abo8j" path="res://systems/ui/HUD/win_scene.gd" id="1_fdysf"]
+[ext_resource type="Texture2D" uid="uid://ctb7so77p5bqp" path="res://systems/ui/HUD/background.png" id="2_fdysf"]
 [ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="3_s73gk"]
-[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="4_ep8sh"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/HUD/button_template.png" id="4_ep8sh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fdysf"]
 font = ExtResource("3_s73gk")
@@ -30,7 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_42d08")
+texture = ExtResource("2_fdysf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1149130350]
 layout_mode = 1
@@ -50,7 +50,7 @@ alignment = 2
 [node name="WinLb" type="Label" parent="VBoxContainer" unique_id=627465355]
 unique_name_in_owner = true
 layout_mode = 2
-text = "[PLAYER] IS THE WINNER"
+text = "PLAYER 1 IS THE WINNER"
 label_settings = SubResource("LabelSettings_fdysf")
 horizontal_alignment = 1
 vertical_alignment = 1

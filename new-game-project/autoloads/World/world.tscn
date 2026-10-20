@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cfv4rxkda6xi7" path="res://entities/environment/new/arenas/Tropical/arena3.tscn" id="4_n1x2a"]
 [ext_resource type="PackedScene" uid="uid://dm0a8tcy3qrnr" path="res://systems/ui/modifiers/modifiers_hud.tscn" id="5_1la5v"]
 [ext_resource type="PackedScene" uid="uid://dvgjggr7vfo31" path="res://entities/environment/new/lobby/lobby.tscn" id="5_syl2k"]
-[ext_resource type="PackedScene" uid="uid://btg117njqy6w6" path="res://systems/ui/hud/title_screen.tscn" id="6_y8kkj"]
-[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/hud/button_template.png" id="7_kj78w"]
+[ext_resource type="PackedScene" uid="uid://btg117njqy6w6" path="res://systems/ui/HUD/title_screen.tscn" id="6_y8kkj"]
+[ext_resource type="Texture2D" uid="uid://cq73jbpspddwi" path="res://systems/ui/HUD/button_template.png" id="7_kj78w"]
 [ext_resource type="FontFile" uid="uid://bdltomuq1v5i5" path="res://fonts/lilitaone-regular.ttf" id="8_kj78w"]
 [ext_resource type="AudioStream" uid="uid://brvrr6ath1les" path="res://sound/catch22music-retro-80s-fusion-electronic-groove-full-354739.mp3" id="9_kj78w"]
 
