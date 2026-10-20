@@ -25,15 +25,15 @@ Regarding the functionality of my final digital outcome, I have decided to plan 
 
 #### Sprint One
 
-<img src="../planning/drawio_flowcharts/sprint1/sprint1_flowchart.png" alt="Integration - Stakeholder one" width="650"/>
+<img src="../planning/drawio_flowcharts/Sprint1/sprint1_flowchart.png" alt="Integration - Stakeholder one" width="650"/>
 
 #### Sprint Two
 
-<img src="../planning/drawio_flowcharts/sprint2/sprint2_flowchart.png" alt="Integration - Stakeholder one" width="650"/>
+<img src="../planning/drawio_flowcharts/Sprint2/sprint2_flowchart.png" alt="Integration - Stakeholder one" width="650"/>
 
 #### Sprint Three
 
-<img src="../planning/drawio_flowcharts/sprint3/sprint3_flowchart.png" alt="Integration - Stakeholder one" width="650"/>
+<img src="../planning/drawio_flowcharts/Sprint3/sprint3_flowchart.png" alt="Integration - Stakeholder one" width="650"/>
 
 ## Test Cases
 
