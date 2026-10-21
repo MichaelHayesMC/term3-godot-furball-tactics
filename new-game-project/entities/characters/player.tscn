@@ -570,6 +570,7 @@ stencil_color = Color(1, 1, 1, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_b0wws"]
 font = ExtResource("3_weqkf")
 font_size = 56
+font_color = Color(0, 0.11764706, 0.18039216, 1)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_g2els"]
 properties/0/path = NodePath(".:position")
